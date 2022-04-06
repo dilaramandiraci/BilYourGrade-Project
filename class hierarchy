@@ -1,0 +1,3 @@
+person{username, password,deptCode, yearCode,courses ArrayList<Course>}
+Course{name, ArrayList<AssessementMethod>}
+AssessementMethod{name, weight}
