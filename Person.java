@@ -4,12 +4,13 @@ public class Person {
     private String userName;
     private String password;
     private String deptCode;
-    private String yearCode;
+    private int yearCode;
+    private int semesterCode;
     private int dataBaseId;
     private ArrayList <Course> courses;
     
 
-    public Person(String aUserName, String aPassword, String aDeptCode, String aYearCode, int dataBaseId, ArrayList <Course> courses)
+    public Person(String aUserName, String aPassword, String aDeptCode, int aYearCode, int dataBaseId, ArrayList<Course>courses, int semesterCode)
     {
         this.userName = aUserName;
         this.password = aPassword;
@@ -17,6 +18,7 @@ public class Person {
         this.yearCode = aYearCode;
         this.dataBaseId = dataBaseId;
         this.courses = courses;
+        this.semesterCode = semesterCode;
     }
 
     public String getUserName() {
@@ -43,11 +45,11 @@ public class Person {
         this.deptCode = deptCode;
     }
 
-    public String getYearCode() {
+    public int getYearCode() {
         return yearCode;
     }
 
-    public void setYearCode(String yearCode) {
+    public void setYearCode(int yearCode) {
         this.yearCode = yearCode;
     }
 
@@ -58,5 +60,22 @@ public class Person {
     public void setDataBaseId(int dataBaseId) {
         this.dataBaseId = dataBaseId;
     }
+
+    public int getSemesterCode() {
+        return semesterCode;
+    }
+
+    public void setSemesterCode(int semesterCode) {
+        this.semesterCode = semesterCode;
+    }
+
+    public ArrayList<Course> getCourses() {
+        return courses;
+    }
+
+    public void setCourses(ArrayList<Course> courses) {
+        this.courses = courses;
+    }
+    
     
 }

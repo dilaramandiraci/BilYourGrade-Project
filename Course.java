@@ -8,10 +8,9 @@ public class Course {
     private String name; //CS
     private String numericCode; //102
 
-    public Course(String aName, ArrayList<Assesement> assesments, String numericCode)
+    public Course(String aName, String numericCode)
     {
         this.name = aName;
-        this.assesements = assesments;
         this.numericCode = numericCode;
     }
 
