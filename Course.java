@@ -1,3 +1,6 @@
+/**
+ *  @author Dilara MANDIRACI
+ */
 import java.util.ArrayList;
 
 public class Course {

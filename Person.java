@@ -6,7 +6,7 @@ public class Person {
     private String deptCode;
     private String yearCode;
     private int dataBaseId;
-    private ArrayList <Courses> courses;
+    private ArrayList <Course> courses;
     
 
     public Person(String aUserName, String aPassword, String aDeptCode, String aYearCode, int dataBaseId)
