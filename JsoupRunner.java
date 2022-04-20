@@ -10,6 +10,8 @@ import org.jsoup.Jsoup;
  */
 public class JsoupRunner
 {
+    private static ArrayList<Assesement> assesmentList = new ArrayList<Assesement>();
+    
     public static void main(String[] args) throws IOException 
     {
         // String html = "<html><head><title>First parse</title></head>"
@@ -31,6 +33,7 @@ public class JsoupRunner
                 {
                     final String weight = row.select("td:nth-of-type(5)").text();
                     final String name = row.select("td:nth-of-type(2)").text();
+                    assesmentList.add(new Assesement(name, Integer.parseInt(weight)));
                     System.out.println(name+": "+weight);  
                 }
             }
