@@ -9,13 +9,14 @@ public class Person {
     private ArrayList <Course> courses;
     
 
-    public Person(String aUserName, String aPassword, String aDeptCode, String aYearCode, int dataBaseId)
+    public Person(String aUserName, String aPassword, String aDeptCode, String aYearCode, int dataBaseId, ArrayList <Course> courses)
     {
         this.userName = aUserName;
         this.password = aPassword;
         this.deptCode = aDeptCode;
         this.yearCode = aYearCode;
         this.dataBaseId = dataBaseId;
+        this.courses = courses;
     }
 
     public String getUserName() {
