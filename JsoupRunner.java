@@ -11,10 +11,35 @@ import org.jsoup.Jsoup;
  * and modified it to fit our project's needs.
  */
 public class JsoupRunner
-{
-    private static ArrayList<Assesement> assesmentList = new ArrayList<Assesement>();
-    
-    public static void main(String[] args) throws IOException 
+{   
+    public ArrayList<Assesement> getAssesements(Course aCourse) throws IOException
+    {
+        ArrayList<Assesement> assesmentList = new ArrayList<Assesement>();
+
+        String url ="https://stars.bilkent.edu.tr/syllabus/view/"+aCourse.getName()+"/"+aCourse.getNumericCode()+"/";
+        try {
+            final Document doc= Jsoup.connect(url).get();
+            
+            //System.out.println(doc.outerHtml());
+            for(Element row:doc.select("table.bordered tr"))
+            {
+                if(row.select("td:nth-of-type(5)").text().equals(""))
+                {
+                    continue;
+                }
+                else
+                {
+                    final String weight = row.select("td:nth-of-type(5)").text();
+                    final String name = row.select("td:nth-of-type(2)").text();
+                    assesmentList.add(new Assesement(name, Integer.parseInt(weight)));  
+                }
+            }  
+        } catch (Exception e) {
+           System.out.println("You've got mail");
+        }
+        return assesmentList;
+    }
+    /* public static void main(String[] args) throws IOException 
     {
         // String html = "<html><head><title>First parse</title></head>"
         // + "<body><p>Parsed HTML into a doc.</p></body></html>";
@@ -44,5 +69,5 @@ public class JsoupRunner
         } catch (Exception e) {
            System.out.println("You've got mail");
         }
-    }
+    } */
 }
