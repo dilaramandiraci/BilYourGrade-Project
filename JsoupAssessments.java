@@ -10,9 +10,9 @@ import org.jsoup.Jsoup;
  * https://github.com/ShaneLee/Java-Web-Stock-Scraper/blob/master/WebScrape.java
  * and modified it to fit our project's needs.
  */
-public class JsoupRunner
+public class JsoupAssessments
 {   
-    public ArrayList<Assesement> getAssesements(Course aCourse) throws IOException
+    public ArrayList<Assesement> getAssesementsFromCurriculum(Course aCourse) throws IOException
     {
         ArrayList<Assesement> assesmentList = new ArrayList<Assesement>();
 
