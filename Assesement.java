@@ -1,6 +1,7 @@
 public class Assesement {
     private String name;
     private int weight;
+    private int grade;
 
     public Assesement(String aName, int aweight)
     {
@@ -24,5 +25,11 @@ public class Assesement {
         this.weight = weight;
     }
 
-    
+     public int getGrade() {
+        return grade;
+    }
+
+    public void setGrade(int grade) {
+        this.grade = grade;
+    }
 }

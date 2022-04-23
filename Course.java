@@ -1,5 +1,6 @@
 /**
  *  @author Dilara MANDIRACI
+ *  and edited by Isil OZGU
  */
 import java.io.IOException;
 import java.util.ArrayList;
@@ -9,7 +10,7 @@ import org.jsoup.nodes.Element;
 import org.jsoup.Jsoup;
 
 public class Course {
-    private ArrayList <Assesement> assesements; //Final %40, Lab %35 etc.
+    private ArrayList <Assesement> assesements= new ArrayList<Assesement>(); //Final %40, Lab %35 etc.//ArrayList was not created properly.
     private String name; //CS
     private String numericCode; //102
 
