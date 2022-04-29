@@ -1,6 +1,8 @@
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.ArrayList;
 
 /**
  * 
@@ -8,7 +10,10 @@ import java.sql.PreparedStatement;
  */
 public class Main {
     public static void main(String[] args) throws Exception {
-        createUser("Işıl", "1234");
+        //createUser("Işıl", "1234");
+       // get();
+       getConnection();
+
     }
 
     public static void createTable() throws Exception {
@@ -44,6 +49,43 @@ public class Main {
         }
 
         return null;
+    }
+
+    public static String getDeptNo() throws Exception{
+        try{
+            Connection con = getConnection();
+            PreparedStatement statement = con.prepareStatement("SELECT number FROM codes WHERE dept_code = 'CHEM'");
+            String deptno="";
+            ResultSet result = statement.executeQuery();
+            
+            while(result.next()){
+                deptno= result.getString("number");
+            }
+            System.out.println("Dept code selected succesfully!");
+            if(deptno.length()==1){ deptno=0+deptno;}
+
+            return deptno;
+            
+        }catch(Exception e){System.out.println(e);}
+        return null;
+        
+    }
+
+    public static int getDatabaseID() throws Exception{
+        try{
+            Connection con = getConnection();
+            PreparedStatement statement = con.prepareStatement("SELECT id FROM users WHERE name = 'Işıl' AND password = '1234'");
+            int databaseid=0;
+            ResultSet result = statement.executeQuery();
+            
+            while(result.next()){
+                databaseid= Integer.parseInt(result.getString("id"));
+            }
+            System.out.println("Id selected succesfully!");
+            return databaseid;
+            
+        }catch(Exception e){System.out.println(e);}
+        return 0;
     }
 
     public static void createUser(String username, String password) throws Exception {
