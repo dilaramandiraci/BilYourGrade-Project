@@ -55,6 +55,11 @@ public class FirstScreen extends javax.swing.JFrame {
         jButton2.setForeground(new java.awt.Color(204, 204, 204));
         jButton2.setText("Sign Up");
         jButton2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jLabel2.setText("   404!");
 
