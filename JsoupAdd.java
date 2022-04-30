@@ -1,5 +1,4 @@
 import java.io.IOException;
-import java.util.ArrayList;
 
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -10,11 +9,11 @@ public class JsoupAdd
 {
     public static void main(String[] args) throws IOException 
     {
-        String url ="https://stars.bilkent.edu.tr/homepage/offerings.php?COURSE_CODE=CS&SEMESTER=20212";//burdaki numaralar sıkıntılı
+        String url ="https://stars.bilkent.edu.tr/homepage/offerings.php?COURSE_CODE=CS&SEMESTER=20212";
         try {
-            final Document doc= Jsoup.connect(url).get();
+            final Document doc = Jsoup.connect(url).get();
             Elements body = doc.select("tbody.scrollingContent");
-            Elements rows = body.select("tr");
+            Elements rows = body.select("tr"); 
 
             for(Element row : rows)
             {
@@ -24,9 +23,9 @@ public class JsoupAdd
                     }
                     else
                     {
-                        final String course = row.select("td:nth-of-type(1)").text();
-                        final String name = row.select("td:nth-of-type(2)").text();
-                        System.out.println(course + name);  
+                        final String course = row.select("td:nth-of-type(1)").first().text();
+                        final String name = row.select("td:nth-of-type(2)").first().text();
+                        System.out.println(course + " " + name);  
                     }
             }
             
