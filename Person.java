@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 
-public class Person {
+public class Person implements Changeable{
     private String userName;
     private String password;
     private String deptCode;
@@ -76,6 +76,17 @@ public class Person {
     public void setCourses(ArrayList<Course> courses) {
         this.courses = courses;
     }
-    
+
+    @Override
+    public void addCourse(Course aCourse) {
+        // TODO Auto-generated method stub
+        
+    }
+
+    @Override
+    public void dropCourse(Course aCourse) {
+        // TODO Auto-generated method stub
+        
+    }
     
 }
