@@ -50,13 +50,14 @@ public class JSoup {
     public ArrayList<Course> scrapeCurriculum(Person aPerson) throws IOException
     {
         ArrayList<Course> thisYearsCourses = new ArrayList<Course>();
-        int courseCodeBasedOnUrl = (aPerson.getYearCode() -1 )*2 + aPerson.getSemesterCode();
-        String url ="https://catalog.bilkent.edu.tr/dep/d"+courseCodeBasedOnUrl+".html";//burdaki numaralar sıkıntılı
+        int tableCode = (aPerson.getYearCode() -1 )*2 + aPerson.getSemesterCode();
+        int deptNumber = 11;
+        String url ="https://catalog.bilkent.edu.tr/dep/d"+deptNumber+".html";//burdaki numaralar sıkıntılı
         try {
             //kaçıncı table=(year-1)*2+semester.
             //index=4*kaçıncı table-1
             final Document doc= Jsoup.connect(url).get();
-            Element table = doc.select("table").get(7);//3-->1.1,7-->1.2,11-->2.1//4er artıyo
+            Element table = doc.select("table").get(tableCode);//3-->1.1,7-->1.2,11-->2.1//4er artıyo
             Elements rows = table.select("tr");
             
            // for(Element table: tables){

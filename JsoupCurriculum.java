@@ -66,7 +66,7 @@ public class JsoupCurriculum
 
     public static void main(String[] args) throws IOException 
     {
-        /* // String html = "<html><head><title>First parse</title></head>"
+        // String html = "<html><head><title>First parse</title></head>"
         // + "<body><p>Parsed HTML into a doc.</p></body></html>";
         // Document doc = Jsoup.parse(html);
 
@@ -75,7 +75,7 @@ public class JsoupCurriculum
             //kaçıncı table=(year-1)*2+semester.
             //index=4*kaçıncı table-1
             final Document doc= Jsoup.connect(url).get();
-            Element table = doc.select("table").get(7);//3-->1.1,7-->1.2,11-->2.1//4er artıyo
+            Element table = doc.select("table").get(11);//3-->1.1,7-->1.2,11-->2.1//4er artıyo
             Elements rows = table.select("tr");
             
            // for(Element table: tables){
@@ -99,6 +99,6 @@ public class JsoupCurriculum
         } catch (Exception e) {
            System.out.println("You've got mail");
         }
-    } */
     } 
+    
 }    
