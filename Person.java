@@ -1,6 +1,7 @@
 /**
  * @author Dilara Mandıracı
  */
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class Person implements Changeable{
@@ -90,6 +91,12 @@ public class Person implements Changeable{
     public void dropCourse(Course aCourse) {
         // TODO Auto-generated method stub
         
+    }
+
+    public ArrayList<Course> getDefaultCourses() throws IOException
+    {
+        JSoup curriculumScraper = new JSoup();
+        return curriculumScraper.scrapeCurriculum(this);
     }
     
 }
