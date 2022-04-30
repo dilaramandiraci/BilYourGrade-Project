@@ -9,7 +9,7 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.Jsoup;
 
-public class Course {
+public class Course implements Modifiable{
     private ArrayList <Assesement> assesements= new ArrayList<Assesement>(); //Final %40, Lab %35 etc.//ArrayList was not created properly.
     private String name; //CS
     private String numericCode; //102
@@ -75,5 +75,11 @@ public class Course {
            System.out.println("You've got mail");
         }
         return assesmentList;
+    }
+
+    @Override
+    public String getAssessment() {
+        // TODO Auto-generated method stub
+        return null;
     }
 }
