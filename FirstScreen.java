@@ -15,7 +15,7 @@ public class FirstScreen extends javax.swing.JFrame {
     /**
      * Creates new form firstScreen
      */
-    JFrame frame = new FirstScreen();
+    static JFrame frame = new FirstScreen();
     public FirstScreen() {
         initComponents();
     }
