@@ -10,6 +10,7 @@ import org.jsoup.nodes.Element;
 import org.jsoup.Jsoup;
 
 public class Course implements Modifiable{
+    
     private ArrayList <Assesement> assesements= new ArrayList<Assesement>(); //Final %40, Lab %35 etc.//ArrayList was not created properly.
     private String name; //CS
     private String numericCode; //102

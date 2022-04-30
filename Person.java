@@ -1,3 +1,6 @@
+/**
+ * @author Dilara Mandıracı
+ */
 import java.util.ArrayList;
 
 public class Person implements Changeable{

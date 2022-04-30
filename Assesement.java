@@ -1,3 +1,6 @@
+/**
+ * @author Dilara Mandıracı
+ */
 public class Assesement {
     private String name;
     private int weight;
