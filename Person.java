@@ -83,13 +83,13 @@ public class Person implements Changeable{
 
     @Override
     public void addCourse(Course aCourse) {
-        // TODO Auto-generated method stub
+       courses.add(aCourse);
         
     }
 
     @Override
     public void dropCourse(Course aCourse) {
-        // TODO Auto-generated method stub
+        courses.remove(aCourse);
         
     }
 
