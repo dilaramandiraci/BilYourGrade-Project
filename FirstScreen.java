@@ -150,7 +150,7 @@ public class FirstScreen extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new FirstScreen().setVisible(true);
+                frame.setVisible(true);
             }
         });
     }
