@@ -410,4 +410,56 @@ public class Database {
 
     }
 
+    public void deleteCourse(int id, String courseName) {
+        ArrayList<String> courses = getCourses(id);
+        int index = courses.indexOf(courseName);
+        try {
+            PreparedStatement statement = con
+                    .prepareStatement("UPDATE users SET course" + (index + 1) + "name = NULL WHERE id = " + id);
+
+            statement.executeUpdate();
+            PreparedStatement update = con
+                    .prepareStatement("DELETE FROM scores WHERE userid = " + id+" AND courseName ='"+courseName+"'");
+
+            update.executeUpdate();
+            System.out.println("Course deleted!");
+
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+
+    }
+
+    public void AddCourse(int id, String courseName) {
+        ArrayList<String> courses = getCourses(id);
+        int index = courses.indexOf(courseName);
+        if (index < 0 || courses.size() < 6) {
+            try {
+                courses.add(courseName);
+                setCourses4user(courses, id);
+                PreparedStatement update = con
+                        .prepareStatement("INSERT IGNORE INTO courses (courseName) VALUES ('"+courseName+"') ");
+                update.executeUpdate();
+                
+                PreparedStatement statement = con.prepareStatement("SELECT courseName FROM courses ");
+                ResultSet result = statement.executeQuery();
+                while(result.next())
+                {
+                    if(result.getString("courseName").equals(courseName))
+                    {
+                        return;
+                    }
+                }
+                //burda sylabusstan çekip sonra setMethods4course çağrılıcak 
+
+                System.out.println("Course added!");
+
+            } catch (Exception e) {
+                System.out.println(e);
+            }
+        }
+        System.out.println("You cannot add this course!");
+
+    }
+
 }
