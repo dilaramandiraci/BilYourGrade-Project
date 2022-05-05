@@ -65,7 +65,7 @@ public class JSoup {
             //kaçıncı table=(year-1)*2+semester.
             //index=4*kaçıncı table-1
             final Document doc= Jsoup.connect(url).get();
-            Element table = doc.select("table").get(tableCode);//3-->1.1,7-->1.2,11-->2.1//4er artıyo
+            Element table = doc.select("table").get(4*tableCode-1);//3-->1.1,7-->1.2,11-->2.1//4er artıyo
             Elements rows = table.select("tr");
             
            // for(Element table: tables){

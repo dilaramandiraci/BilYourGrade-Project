@@ -46,24 +46,7 @@ public class Database {
         // mysql.setMethods4Courses(a, c, "MadeUpCourse");
     }
 
-    // public void createTable() throws Exception {
-    // try {
-
-    // Connection con = getConnection();// once we call this we are connected to the
-    // database?
-    // PreparedStatement create = con.prepareStatement(
-    // "CREATE TABLE IF NOT EXISTS tablename(id int NOT NULL AUTO_INCREMENT,first
-    // varchar(255),last varchar(255),PRIMARY KEY(id))");
-
-    // create.executeUpdate();
-
-    // } catch (Exception e) {
-    // System.out.println(e);
-    // }
-
-    // }
-
-    // this is how to connect to a database?
+    
     public Connection getConnection() throws Exception {
         try {
             String driver = "com.mysql.cj.jdbc.Driver";// "com.mysql.jdbc.Driver"-->previously
@@ -83,7 +66,9 @@ public class Database {
         return null;
     }
 
-    public void createUser(String username, String password) throws Exception {
+    public void createUser(Person aPerson) throws Exception {
+        String username= aPerson.getUserName();
+        String password=aPerson.getPassword();
         try {
 
             // Connection con = getConnection();
