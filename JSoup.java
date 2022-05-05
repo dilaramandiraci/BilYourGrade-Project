@@ -51,7 +51,15 @@ public class JSoup {
     {
         ArrayList<Course> thisYearsCourses = new ArrayList<Course>();
         int tableCode = (aPerson.getYearCode() -1 )*2 + aPerson.getSemesterCode();
-        int deptNumber = 11;
+        Database mysql ;int deptNumber=11;
+        try {
+            mysql = new Database();
+            deptNumber = Integer.parseInt(mysql.getDeptNo(aPerson.getDeptCode().toUpperCase()));//uppercase is just in case
+        } catch (Exception e1) {
+            System.out.println(e1);
+            e1.printStackTrace();
+        }
+        
         String url ="https://catalog.bilkent.edu.tr/dep/d"+deptNumber+".html";//burdaki numaralar sıkıntılı
         try {
             //kaçıncı table=(year-1)*2+semester.
