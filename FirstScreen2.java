@@ -8,7 +8,7 @@ import javax.swing.JFrame;
 
 /**
  *
- * @author dilaramandiraci
+ * @author dilaramandiraci1
  */
 public class FirstScreen extends javax.swing.JFrame {
 
