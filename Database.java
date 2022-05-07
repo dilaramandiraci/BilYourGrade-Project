@@ -224,7 +224,7 @@ public class Database {
 
     }
 
-    public void setMethods4Courses(ArrayList<Integer> mWeights, ArrayList<String> names, String courseName)
+    public void setAssessments4Course(ArrayList<Integer> mWeights, ArrayList<String> names, String courseName)
             throws Exception {
         try {
             PreparedStatement create = con.prepareStatement(
@@ -415,16 +415,15 @@ public class Database {
 
     }
 
-    public void AddCourse(int id, String courseName) {
+    public void AddCourse(int id, Course aCourse) {
+        String courseName= aCourse.getName()+aCourse.getNumericCode();
         ArrayList<String> courses = getCourses(id);
         int index = courses.indexOf(courseName);
-        if (index < 0 || courses.size() < 6) {
+        if (index < 0 && courses.size() < 6) {
             try {
                 courses.add(courseName);
                 setCourses4user(courses, id);
-                PreparedStatement update = con
-                        .prepareStatement("INSERT IGNORE INTO courses (courseName) VALUES ('"+courseName+"') ");
-                update.executeUpdate();
+               
                 
                 PreparedStatement statement = con.prepareStatement("SELECT courseName FROM courses ");
                 ResultSet result = statement.executeQuery();
@@ -435,7 +434,16 @@ public class Database {
                         return;
                     }
                 }
-                //burda sylabusstan çekip sonra setMethods4course çağrılıcak 
+                ArrayList<Assesement> a= aCourse.getAssesements();
+                ArrayList<Integer> weights=new ArrayList<>();
+                ArrayList<String> names=new ArrayList<>();
+                for(int i =0;i<a.size();i++)
+                {
+                    weights.add(a.get(i).getGrade());
+                    names.add(a.get(i).getName());
+                }
+                setAssessments4Course(weights, names, courseName);
+                
 
                 System.out.println("Course added!");
 
