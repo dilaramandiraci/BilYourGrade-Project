@@ -53,7 +53,8 @@ public class Login extends javax.swing.JFrame {
         });
 
         //jTextField2.setText("password");
-        jTextField2.addKeyListener(new java.awt.event.KeyAdapter() {
+        jPasswordField1.setText("jPasswordField1");
+        jPasswordField1.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 jTextField2KeyTyped(evt);
             }
