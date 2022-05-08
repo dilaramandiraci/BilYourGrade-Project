@@ -1,6 +1,7 @@
 {
     "java.project.referencedLibraries": [
         "lib/**/*.jar",
-        "jsoup-1.14.3.jar"
+        "jsoup-1.14.3.jar",
+        "/Users/dilaramandiraci/Downloads/selenium-java-4/**/*.jar"
     ]
 }
