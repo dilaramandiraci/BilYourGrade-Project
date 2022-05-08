@@ -14,15 +14,21 @@ public class Person implements Changeable{
     private ArrayList <Course> courses;
     
 
-    public Person(String aUserName, String aPassword, String aDeptCode, int aYearCode, int dataBaseId, ArrayList<Course>courses, int semesterCode)
+    public Person(String aUserName, String aPassword, String aDeptCode, int aYearCode, int dataBaseId, int semesterCode)
     {
         this.userName = aUserName;
         this.password = aPassword;
         this.deptCode = aDeptCode;
         this.year = aYearCode;
         this.dataBaseId = dataBaseId;
-        this.courses = courses;
         this.semester = semesterCode;
+        try {
+            this.courses = getDefaultCourses();
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        
     }
 
     public String getUserName() {
