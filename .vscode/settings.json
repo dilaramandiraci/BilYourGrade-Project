@@ -2,6 +2,7 @@
     "java.project.referencedLibraries": [
         "lib/**/*.jar",
         "jsoup-1.14.3.jar",
-        "/Users/dilaramandiraci/Downloads/selenium-java-4/**/*.jar"
+        "/Users/dilaramandiraci/Downloads/selenium-java-4/**/*.jar",
+        "d:\\jdbc-isil\\mysql-connector-java-8.0.28\\mysql-connector-java-8.0.28.jar"
     ]
 }

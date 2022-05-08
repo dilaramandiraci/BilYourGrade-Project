@@ -21,13 +21,14 @@ public class Person implements Changeable{
         this.deptCode = aDeptCode;
         this.year = aYearCode;
         this.dataBaseId = dataBaseId;
+        this.semester = semesterCode;
         try {
             this.courses = getDefaultCourses();
         } catch (IOException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
-        this.semester = semesterCode;
+        
     }
 
     public String getUserName() {
