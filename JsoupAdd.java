@@ -12,7 +12,7 @@ public class JsoupAdd
         String url ="https://stars.bilkent.edu.tr/homepage/offerings.php?COURSE_CODE=CS&SEMESTER=20212";
         try {
             final Document doc = Jsoup.connect(url).get();
-            Elements body = doc.select("tbody.scrollingContent");
+            Elements body = doc.select("tbody.scrollingContent");;
             Elements rows = body.select("tr"); 
 
             for(Element row : rows)
