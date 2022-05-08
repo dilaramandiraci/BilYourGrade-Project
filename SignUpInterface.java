@@ -1,3 +1,5 @@
+import javax.swing.JFrame;
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/Application.java to edit this template
@@ -13,6 +15,7 @@ public class SignUpInterface extends javax.swing.JFrame {
     /**
      * Creates new form menu
      */
+    static JFrame frame = new SignUpInterface();
     public SignUpInterface() {
         initComponents();
     }
@@ -249,7 +252,7 @@ public class SignUpInterface extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new SignUpInterface().setVisible(true);
+                frame.setVisible(true);
             }
         });
     }
