@@ -23,13 +23,12 @@ public class SignUpInterface extends javax.swing.JFrame {
     String              aDeptCode;
     int                 aYearCode;
     int                 dataBaseId;
-    ArrayList<Course>   courses;
     int                 semesterCode;
 
     static JFrame frame = new SignUpInterface();
     public SignUpInterface() {
         initComponents();
-        aPerson = new Person(aUserName, aPassword, aDeptCode, aYearCode, dataBaseId, courses, semesterCode);
+        aPerson = new Person(aUserName, aPassword, aDeptCode, aYearCode, dataBaseId,semesterCode);
     }
 
     /**
