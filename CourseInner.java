@@ -39,7 +39,7 @@ import javax.swing.event.ChangeListener;
 public class CourseInner extends JFrame{
     
 
-    
+    public static JFrame frame = new CourseInner();
     //VARIABLES
     private static final int FRAME_WIDTH = 1000;
     private static final int FRAME_HEIGHT = 700;
