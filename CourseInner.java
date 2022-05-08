@@ -5,6 +5,8 @@
 */
 
 import javax.swing.ComboBoxEditor;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import javax.swing.JComponent;
@@ -43,6 +45,8 @@ public class CourseInner extends JFrame{
     private static final int FRAME_WIDTH = 1000;
     private static final int FRAME_HEIGHT = 700;
 
+    JButton backButton = new JButton();
+
     //CONSTRUCTOR
     public CourseInner(){
 
@@ -50,16 +54,26 @@ public class CourseInner extends JFrame{
         setLocation(0, 0);
         setSize(FRAME_WIDTH, FRAME_HEIGHT);
 
-        
+
+        add(getBackButton());
         JLabel label = new JLabel("only pain :/");
         add(label);
+    }
+    
+    public JButton getBackButton(){
+        backButton.setText("<--");
+        backButton.setSize(60, 60);
+        backButton.setLocation(30,30);
+        backButton.setForeground(Color.WHITE);
+        backButton.setBackground(Color.BLACK);
+        return backButton;
     }
 
     public static void main(String[] args) {
         
-        CourseInner game = new CourseInner();
-        game.setTitle("BARÇINUS");
-        game.setVisible(true);  
-        game.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        CourseInner courseInner = new CourseInner();
+        
+        courseInner.setVisible(true);  
+        courseInner.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
 }
