@@ -15,7 +15,7 @@ public class FirstScreen extends javax.swing.JFrame {
     /**
      * Creates new form firstScreen
      */
-    static JFrame frame = new FirstScreen();
+    public static JFrame Fframe = new FirstScreen();
     public FirstScreen() {
         initComponents();
     }
@@ -103,8 +103,8 @@ public class FirstScreen extends javax.swing.JFrame {
         // TODO add your handling code here:
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Login().setVisible(true);
-                frame.setVisible(false);
+                Login.frame.setVisible(true);
+                Fframe.setVisible(false);
                 
             }});
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -115,8 +115,8 @@ public class FirstScreen extends javax.swing.JFrame {
         
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new SignUpInterface().setVisible(true);
-                frame.setVisible(false);
+                SignUpInterface.frame.setVisible(true);
+                Fframe.setVisible(false);
                 
             }});
             
@@ -150,7 +150,7 @@ public class FirstScreen extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                frame.setVisible(true);
+                Fframe.setVisible(true);
             }
         });
     }

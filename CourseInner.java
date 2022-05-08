@@ -50,6 +50,7 @@ public class CourseInner extends JFrame{
         setLocation(0, 0);
         setSize(FRAME_WIDTH, FRAME_HEIGHT);
 
+        
         JLabel label = new JLabel("only pain :/");
         add(label);
     }
