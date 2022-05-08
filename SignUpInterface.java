@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import javax.swing.JFrame;
 
 /*
@@ -9,15 +10,26 @@ import javax.swing.JFrame;
 /**
  *
  * @author dilaramandiraci
+ * @author akiftnyr
  */
 public class SignUpInterface extends javax.swing.JFrame {
 
     /**
      * Creates new form menu
      */
+    Person              aPerson;
+    String              aUserName;
+    String              aPassword;
+    String              aDeptCode;
+    int                 aYearCode;
+    int                 dataBaseId;
+    ArrayList<Course>   courses;
+    int                 semesterCode;
+
     static JFrame frame = new SignUpInterface();
     public SignUpInterface() {
         initComponents();
+        aPerson = new Person(aUserName, aPassword, aDeptCode, aYearCode, dataBaseId, courses, semesterCode);
     }
 
     /**
@@ -215,9 +227,46 @@ public class SignUpInterface extends javax.swing.JFrame {
         System.exit(0);
     }//GEN-LAST:event_exitMenuItemActionPerformed
 
+    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt){
+
+        if(evt.getSource() == "Enter"){                // enter'a basmadan yazı yazılıp bırakıldığında harekete geçirmek için napmak lazım?
+            aUserName = evt.getActionCommand();        // "Enter" komutu doğru mu yoksa JTextField1 mi yapmak lazımn?
+            // aUserName = jTextField1.getText();
+        }
+    }
     private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
-        // TODO add your handling code here:
+        
+        if(evt.getSource() == jTextField2){        
+            aDeptCode = evt.getActionCommand();    // -- ikisinden biri çalışıyor olmalı !!
+        //  aDeptCode = jTextField2.getText();     // --
+        }
     }//GEN-LAST:event_jTextField2ActionPerformed
+
+    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt){
+        if (jComboBox1.isValid()){  // if'in içinde seçilmiş olduğunu gösteren metot
+            aYearCode =jComboBox1.getSelectedIndex(); // year code neye göre?   +  bu metottan emin değilim!!
+            // semesterCode = ;                          semester code'u neye göre belirliyoruz?
+        }
+    }
+    
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {
+
+        if(evt.getSource()== jButton1){  // kurslar bir yerden gelecek......
+            // TODO
+        }
+    }
+
+    private void jPasswordField2ActionPerformed(java.awt.event.ActionEvent evt){
+
+        if(evt.getSource() ==jPasswordField2){ // ??
+            if(jPasswordField1.getInputContext().equals(jPasswordField2.getInputContext())){ // inputu alan metot ??
+                aPassword = jPasswordField2.getName(); // inputu alan metot ??
+            }
+        }
+        else { // passwordlar uyuşmuyorsa   uyaran kırmızı yazı çıkmalı 
+            //TODO 
+        }
+    }
 
     /**
      * @param args the command line arguments
