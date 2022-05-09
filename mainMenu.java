@@ -10,6 +10,7 @@ import javax.swing.Timer;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import java.awt.*;
 import javax.swing.JColorChooser;
 import javax.swing.event.ChangeEvent;
@@ -38,11 +39,15 @@ public class mainMenu extends JFrame {
     static int courseTh;
     static boolean forChanges=false;
     static private Person person;
+    ArrayList<String> courses;
     
 
-    public mainMenu(Person aPerson) {
+    public mainMenu(Person aPerson) throws Exception {
         initComponents();
         this.person = aPerson;
+        Database dbase = new Database();
+        courses = dbase.getCourses(person.getDataBaseId());
+        
     }
 
     /**
@@ -136,7 +141,7 @@ public class mainMenu extends JFrame {
             courseButtons[i]=new javax.swing.JButton();
             courseButtons[i].setBackground(new java.awt.Color(0, 0, 204));
             courseButtons[i].setForeground(new java.awt.Color(255, 255, 255));
-            courseButtons[i].setText(person.getCourses().get(i).getFulName());
+            courseButtons[i].setText(courses.get(i));
             courseButtons[i].setSize(160, 30);
             courseButtons[i].setLocation(20, i*50);
             courseButtons[i].addActionListener(new java.awt.event.ActionListener() {
@@ -251,7 +256,7 @@ allPanel.add(downPanel);
     }                                        
 
                                             
-    public static void main(String args[]) {
+    public static void main(String args[]) throws Exception {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
