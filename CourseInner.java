@@ -38,7 +38,7 @@ import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 
 
-public class CourseInner extends JFrame{
+public class CourseInner extends JFrame implements ActionListener{
     
 
     //public static JFrame frame = new CourseInner();
@@ -54,11 +54,24 @@ public class CourseInner extends JFrame{
     JButton backButton = new JButton();
     JLabel courseName = new JLabel();
     JPanel emptyPanel = new JPanel();
+    JButton calculate = new JButton();
+    Database dbase;
+    int databaseId;
+
+    
+
 
     //CONSTRUCTOR
-    public CourseInner(Course aCourse, int dataBaseId){
+    public CourseInner(Course aCourse, int AdataBaseId){
 
+        try {
+            dbase = new Database();
+        } catch (Exception e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
         this.course = aCourse;
+        this.databaseId = AdataBaseId;
         setLocation(0, 0);
         setSize(FRAME_WIDTH, FRAME_HEIGHT);
 
@@ -107,8 +120,8 @@ public class CourseInner extends JFrame{
 
     public JButton getCalculateButton()
     {
-        JButton calculate = new JButton();
         
+        calculate.addActionListener(this);;
         calculate.setText("CALCULATE");
         calculate.setSize(200, 100);
         calculate.setLocation(FRAME_WIDTH-250, FRAME_HEIGHT-150);
@@ -117,12 +130,71 @@ public class CourseInner extends JFrame{
         return calculate;
     }
 
+    //LISTENER
+    
+    public void actionPerformed(ActionEvent e) {
+
+
+        if(e.getSource() == calculate)
+        {
+            double totalGrade = 0;
+            double[] assesementGrades = new double[dbase.getMethodNames(course.getFulName()).size()];
+
+            for(int i = 0; i < texts.size(); i++)
+            {
+                String assesmentString = texts.get(i).getText() ;
+                double assesementGrade = 0;
+                int slashCount = 0;
+
+
+                for(int j = 0; j< assesmentString.length(); j++)
+                {
+                    int startingIndex = 0;
+                    double elmacık = 0;
+                    boolean isOpen = false;
+
+                    if(assesmentString.charAt(j) == '/')
+                    {
+
+                        slashCount++;
+                        elmacık = Double.valueOf(assesmentString.substring(startingIndex, j));
+                        isOpen = true;
+                        startingIndex = j+1;
+                    }
+                    if(assesmentString.charAt(j) == '+')
+                    {
+                        elmacık = elmacık / Double.valueOf(assesmentString.substring(startingIndex, j));
+                        isOpen = false;
+                        assesementGrade += elmacık;
+                    }
+                    if(j == assesmentString.length() -1 && isOpen)
+                    {
+                        elmacık = elmacık / Double.valueOf(assesmentString.substring(startingIndex));
+                        assesementGrade += elmacık;
+                    }
+                }
+                assesementGrade = assesementGrade / slashCount;
+                assesementGrades[i] = assesementGrade;
+
+            }
+
+            for(int i = 0 ; i < assesementGrades.length ; i++)
+            {
+                totalGrade += assesementGrades[i] * dbase.getMethodWeights(course.getFulName()).get(i); 
+            }
+
+
+
+
+        }
+    }
 
     public static void main(String[] args) {
-        
-        /* CourseInner courseInner = new CourseInner();
+        Course course = new Course("barçın102", "31");
+        CourseInner courseInner = new CourseInner(course,31);
         
         courseInner.setVisible(true);  
-        courseInner.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); */
+        courseInner.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 
     }
+
 }
