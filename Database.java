@@ -119,7 +119,7 @@ public class Database {
             while (result.next()) {
                 databaseid = Integer.parseInt(result.getString("id"));
             }
-            System.out.println("Id selected succesfully!");
+            System.out.println("Id selected succesfully!"+databaseid);
             return databaseid;
 
         } catch (Exception e) {
@@ -300,14 +300,14 @@ public class Database {
                     courses.add(result.getString("course" + i + "name"));
 
                 } else {
-                    break;
+                    courses.add("");
                 }
             }
             System.out.println("Accessed courses!");
             return courses;
 
         } catch (Exception e) {
-            System.out.println(e);
+            System.out.println("sıkıntı"+e);
         }
         return null;
     }

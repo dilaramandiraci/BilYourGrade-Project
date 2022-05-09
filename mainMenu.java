@@ -38,15 +38,16 @@ public class mainMenu extends JFrame {
     int frameWeight=400;
     static int courseTh;
     static boolean forChanges=false;
-    static private Person person;
+    private Person person;
     ArrayList<String> courses;
     
 
     public mainMenu(Person aPerson) throws Exception {
-        initComponents();
-        this.person = aPerson;
+        
+        person = aPerson;
         Database dbase = new Database();
         courses = dbase.getCourses(person.getDataBaseId());
+        initComponents();
         
     }
 
@@ -279,11 +280,12 @@ allPanel.add(downPanel);
             java.util.logging.Logger.getLogger(mainMenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-        mainMenu frame=new mainMenu(person);
+        //mainMenu frame=new mainMenu(person);
 
         /* Create and display the form */
         
-                frame.setVisible(true);
+                //frame.setVisible(true);
+               // super.getFrame
            
     }
 
