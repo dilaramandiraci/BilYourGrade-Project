@@ -257,19 +257,21 @@ public class SignUpInterface extends javax.swing.JFrame {
         System.exit(0);
     }//GEN-LAST:event_exitMenuItemActionPerformed
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt){
+    /* private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt){
         if(evt.getSource() == "Enter"){                   
             aUserName = jTextField1.getText();
         }
-    }
+    } */
     
-    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
+    /* private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
         if(evt.getSource() == "Enter"){         
             aDeptCode = jTextField2.getText();       
         }
-    }//GEN-LAST:event_jTextField2ActionPerformed
+    } *///GEN-LAST:event_jTextField2ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        aUserName = jTextField1.getText();
+        aDeptCode = jTextField2.getText();
         aPerson = new Person(aUserName, aPassword, aDeptCode, aYearCode, dataBaseId, semesterCode);
         
         try {
