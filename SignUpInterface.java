@@ -321,12 +321,16 @@ public class SignUpInterface extends javax.swing.JFrame {
     }
     ////////////// methods to get year and semester as integers//////////////////
     private int getTheYear(String yearSemester){
-        String year = yearSemester.substring(0, 0);
+        String year = "";
+        char ch= yearSemester.charAt(0);
+        year = year + ch;
         int yearInt = Integer.parseInt(year);
         return yearInt;
     }
     private int getTheSemester(String yearSemester){
-        String semester = yearSemester.substring(2,2); // sayıları kontrol et
+        String semester = "";
+        char ch= yearSemester.charAt(2);
+        semester = semester + ch;
         int semesterInt = Integer.parseInt(semester);
         return semesterInt;
     }
