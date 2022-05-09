@@ -15,8 +15,18 @@ public class messageFrame extends javax.swing.JFrame {
     /**
      * Creates new form messageFrame
      */
-    public static JFrame messageFrame=new messageFrame();
-    public messageFrame() {
+    //public static JFrame messageFrame=new messageFrame();
+    
+    Person person;
+    mainMenu m;
+    public messageFrame(Person oPerson) {
+        this.person=oPerson;
+        try {
+            m=new mainMenu(oPerson);
+        } catch (Exception e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
         initComponents();
     }
 
@@ -83,23 +93,22 @@ public class messageFrame extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
+       
+                person.dropCourse(person.getCourses().get(m.getForActions()));
                
-                messageFrame.setVisible(false);
+                this.setVisible(false);
+                m.reFreshFrame();
                 
-                
-            }});
+           
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
+        
                
-                messageFrame.setVisible(false);
+                this.setVisible(false);
                 
-            }});
+            
     }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
@@ -125,17 +134,14 @@ public class messageFrame extends javax.swing.JFrame {
         } catch (IllegalAccessException ex) {
             java.util.logging.Logger.getLogger(messageFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(messageFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(messageFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);}
         }
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                messageFrame.setVisible(true);
-            }
-        });
-    }
+        
+           // this.setVisible(true);
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;

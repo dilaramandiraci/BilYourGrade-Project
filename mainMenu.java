@@ -308,10 +308,10 @@ allPanel.add(downPanel,BorderLayout.NORTH);
             public void run() {
                 for(int i=0;i<courseButtons.length;i++){
                     if(evt.getSource()==courseButtons[i]){
-                        CourseInner(person.getCourses().get(i)).frame.setVisible(true);
+                        new CourseInner(person.getCourses().get(i),person.getDataBaseId());
                     }
                 }
-                 
+                
                setVisible(false);
                 
             }});
