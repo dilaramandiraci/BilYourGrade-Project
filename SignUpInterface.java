@@ -30,7 +30,6 @@ public class SignUpInterface extends javax.swing.JFrame {
     static JFrame frame = new SignUpInterface();
     public SignUpInterface() {
         initComponents();
-        aPerson = new Person(aUserName, aPassword, aDeptCode, aYearCode, dataBaseId, semesterCode);
         try {
             database = new Database();
         } catch (Exception e) {
@@ -271,7 +270,8 @@ public class SignUpInterface extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField2ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-       
+        aPerson = new Person(aUserName, aPassword, aDeptCode, aYearCode, dataBaseId, semesterCode);
+        
         try {
             database.createUser(aPerson);
             dataBaseId = database.getDatabaseID(aUserName,aPassword);
