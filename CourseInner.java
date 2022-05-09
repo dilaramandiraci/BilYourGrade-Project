@@ -58,8 +58,7 @@ public class CourseInner extends JFrame implements ActionListener{
     Database dbase;
     int databaseId;
 
-    
-
+    int assesementCount = dbase.getMethodNames(course.getFulName()).size();
 
     //CONSTRUCTOR
     public CourseInner(Course aCourse, int AdataBaseId){
@@ -78,10 +77,10 @@ public class CourseInner extends JFrame implements ActionListener{
 
         add(getBackButton());
         add(getCourseName());
-        for(int i = 0; i < course.getAssesements().size() ; i++)//TO DO -> 5 yerine course un assesement sayısı gelicek
+        for(int i = 0; i < assesementCount ; i++)//TO DO -> 5 yerine course un assesement sayısı gelicek
         {
             JLabel label = new JLabel();
-            label.setText("assesement name " + course.getAssesements().get(i).getName()); // TO DO -> thiscourse.assesements[i].getName();
+            label.setText("assesement name " + dbase.getMethodNames(course.getFulName()).get(i)); // TO DO -> thiscourse.assesements[i].getName();
             label.setSize(300, 30);
             label.setLocation(30, 120 + (i*70));
             label.setBackground(new java.awt.Color(0,200,0));
@@ -112,7 +111,7 @@ public class CourseInner extends JFrame implements ActionListener{
     }
     
     public JLabel getCourseName(){
-        courseName.setText("TO DO (MATH102)");
+        courseName.setText(course.getFulName());
         courseName.setSize(300, 60);
         courseName.setLocation(100,20);
         return courseName;
@@ -138,7 +137,7 @@ public class CourseInner extends JFrame implements ActionListener{
         if(e.getSource() == calculate)
         {
             double totalGrade = 0;
-            double[] assesementGrades = new double[dbase.getMethodNames(course.getFulName()).size()];
+            double[] assesementGrades = new double[assesementCount];
 
             for(int i = 0; i < texts.size(); i++)
             {
