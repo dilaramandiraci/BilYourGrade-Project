@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 import javax.swing.JFrame;
 
 /*
@@ -278,7 +280,16 @@ public class SignUpInterface extends javax.swing.JFrame {
             e.printStackTrace();
         }
         aPerson.setDataBaseId(dataBaseId);
-
+        ArrayList<String> courseNames = new ArrayList<String>();
+        for (int i = 0; i < aPerson.getCourses().size(); i++) {
+            courseNames.add(aPerson.getCourses().get(i).getFulName());
+        }
+        try {
+            database.setCourses4user(courseNames, dataBaseId);
+        } catch (Exception e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace(); 
+        }
         frame.setVisible(false);
         Login.frame.setVisible(true);
     }
