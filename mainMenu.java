@@ -279,11 +279,11 @@ allPanel.add(downPanel);
             java.util.logging.Logger.getLogger(mainMenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-        mainMenu frame=new mainMenu(person);
+        //mainMenu frame=new mainMenu(person);
 
         /* Create and display the form */
         
-                frame.setVisible(true);
+                //frame.setVisible(true);
            
     }
 
