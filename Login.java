@@ -140,8 +140,21 @@ public class Login extends javax.swing.JFrame {
         // TODO add your handling code here:
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                mainMenu.frame.setVisible(true);
-                frame.setVisible(false);
+                Database dbase;
+                try {
+                    dbase = new Database();
+                    int databaseId = dbase.userExists(jTextField1.getText(), String.valueOf(jPasswordField1.getPassword()));
+                    if (databaseId>0)
+                    {
+                        new mainMenu(new Person(jTextField1.getText(), String.valueOf(jPasswordField1.getPassword()),databaseId)).setVisible(true);
+                        frame.setVisible(false);
+                    }
+                } catch (Exception e) {
+                    // TODO Auto-generated catch block
+                    e.printStackTrace();
+                }
+                
+                
                 
             }});
     }//GEN-LAST:event_jButton1MousePressed
