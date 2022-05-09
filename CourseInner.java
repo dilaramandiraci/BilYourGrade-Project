@@ -16,12 +16,14 @@ import javax.swing.JList;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JSlider;
+import javax.swing.JTextField;
 import javax.swing.Popup;
 import javax.swing.SwingConstants;
 import javax.swing.Timer;
 import javax.swing.border.Border;
 import javax.swing.border.EmptyBorder;
 import java.awt.event.KeyEvent;
+import java.util.ArrayList;
 import java.util.Random;
 import javax.swing.Timer;
 import java.awt.event.KeyEvent;
@@ -41,14 +43,17 @@ public class CourseInner extends JFrame{
 
     public static JFrame frame = new CourseInner();
     //VARIABLES
-    private static final int FRAME_WIDTH = 1000;
+    Course course;
+    private static final int FRAME_WIDTH = 700;
     private static final int FRAME_HEIGHT = 700;
 
     Random rand = new Random();
 
+    ArrayList<JTextField> texts = new ArrayList<JTextField>();
 
     JButton backButton = new JButton();
     JLabel courseName = new JLabel();
+    JPanel emptyPanel = new JPanel();
 
     //CONSTRUCTOR
     public CourseInner(){
@@ -60,18 +65,30 @@ public class CourseInner extends JFrame{
 
         add(getBackButton());
         add(getCourseName());
-        for(int i = 0; i < 5 ; i++)//TO DO -> 5 yerine course un assesement sayısı gelicek
+        for(int i = 0; i < 3 ; i++)//TO DO -> 5 yerine course un assesement sayısı gelicek
         {
-            add(getAssesement(i));
+            JLabel label = new JLabel();
+            label.setText("assesement name " + i);// TO DO -> thiscourse.assesements[i].getName();
+            label.setSize(300, 30);
+            label.setLocation(30, 120 + (i*100));
+            label.setBackground(new java.awt.Color(0,200,0));
+            add(label);
+
+            JTextField textField = new JTextField();
+            
+            textField.setSize(500, 60);
+            textField.setLocation(40, 160 + (i*100));
+            textField.setBackground(new java.awt.Color(0,200,0));
+            add(textField);
         }
+
+        add(getCalculateButton());
+        add(emptyPanel);
         
-
-        JLabel label = new JLabel("only pain :/");
-
-        add(label);
     }
     
     public JButton getBackButton(){
+
         backButton.setText("<--");
         backButton.setSize(60, 60);
         backButton.setLocation(20,20);
@@ -87,20 +104,16 @@ public class CourseInner extends JFrame{
         return courseName;
     }
 
-    public JPanel getAssesement(int i) {
-        JPanel assesement = new JPanel();
-        JLabel assesementName = new JLabel();
-        assesementName.setText("assesement name " + i); // TO DO -> thiscourse.assesements[i].getName();
-        assesementName.setSize(300, 60);
-        assesementName.setLocation(20,100);
-        assesement.setSize(500, 100);
-        assesement.setLocation(20,120 + (i*100));
-        assesement.setBackground(new java.awt.Color(rand.nextInt(200),rand.nextInt(200),rand.nextInt(200)));
-        assesement.add(assesementName);
+    public JButton getCalculateButton()
+    {
+        JButton calculate = new JButton();
+        
+        calculate.setText("CALCULATE");
+        calculate.setSize(200, 100);
+        calculate.setLocation(FRAME_WIDTH-250, FRAME_HEIGHT-150);
+        calculate.setBackground(new java.awt.Color(0,51,255));
 
-
-
-        return assesement;
+        return calculate;
     }
 
 
