@@ -229,6 +229,27 @@ public class SignUpInterface extends javax.swing.JFrame {
         // TODO add your handling code here:
         frame.setVisible(false);
         Login.frame.setVisible(true);
+    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt){
+        if (jComboBox1.isValid()){  // if'in içinde seçilmiş olduğunu gösteren metot
+            aYearCode = getTheYear((String) jComboBox1.getSelectedItem()) ;
+            semesterCode = getTheSemester((String) jComboBox1.getSelectedItem());
+        }
+    }
+    
+    ////////////// methods to get year and semester as integers//////////////////
+    private int getTheYear(String yearSemester){
+        String year = yearSemester.substring(0, 1);
+        int yearInt = Integer.parseInt(year);
+        return yearInt;
+    }
+    private int getTheSemester(String yearSemester){
+        String semester = yearSemester.substring(2,3); // sayıları kontrol et
+        int semesterInt = Integer.parseInt(semester);
+        return semesterInt;
+    }
+    /////////////////////////////////////////////////////////////////////////////
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {
 
     }//GEN-LAST:event_jButton2ActionPerformed
 
