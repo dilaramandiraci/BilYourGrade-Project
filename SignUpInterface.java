@@ -1,4 +1,3 @@
-import java.util.ArrayList;
 import javax.swing.JFrame;
 
 /*
@@ -9,26 +8,16 @@ import javax.swing.JFrame;
 
 /**
  *
- * @author dilaramandiraci
- * @author akiftnyr
+ * @author dilaramandiraciİ
  */
 public class SignUpInterface extends javax.swing.JFrame {
 
     /**
      * Creates new form menu
      */
-    Person              aPerson;
-    String              aUserName;
-    String              aPassword;
-    String              aDeptCode;
-    int                 aYearCode;
-    int                 dataBaseId;
-    int                 semesterCode;
-
     static JFrame frame = new SignUpInterface();
     public SignUpInterface() {
         initComponents();
-        aPerson = new Person(aUserName, aPassword, aDeptCode, aYearCode, dataBaseId,semesterCode);
     }
 
     /**
@@ -43,7 +32,6 @@ public class SignUpInterface extends javax.swing.JFrame {
         jTextField1 = new javax.swing.JTextField();
         jTextField2 = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
         jPasswordField1 = new javax.swing.JPasswordField();
         jPasswordField2 = new javax.swing.JPasswordField();
         jLabel2 = new javax.swing.JLabel();
@@ -52,6 +40,7 @@ public class SignUpInterface extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
+        jButton2 = new javax.swing.JButton();
         menuBar = new javax.swing.JMenuBar();
         fileMenu = new javax.swing.JMenu();
         openMenuItem = new javax.swing.JMenuItem();
@@ -77,10 +66,6 @@ public class SignUpInterface extends javax.swing.JFrame {
 
         jLabel1.setText("year/semester");
 
-        jButton1.setBackground(new java.awt.Color(0, 51, 255));
-        jButton1.setForeground(new java.awt.Color(204, 204, 204));
-        jButton1.setText("Get Courses");
-
         jPasswordField1.setText("jPasswordField1");
 
         jPasswordField2.setText("jPasswordField2");
@@ -96,6 +81,15 @@ public class SignUpInterface extends javax.swing.JFrame {
         jLabel5.setText("Department Code ( i.e. CS )");
 
         jLabel6.setText("   CREATE AN ACCOUNT");
+
+        jButton2.setBackground(new java.awt.Color(0, 51, 204));
+        jButton2.setForeground(new java.awt.Color(255, 255, 255));
+        jButton2.setText("CREATE");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         fileMenu.setMnemonic('f');
         fileMenu.setText("File");
@@ -168,26 +162,27 @@ public class SignUpInterface extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jTextField1)
+                            .addComponent(jTextField2)
+                            .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jPasswordField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jComboBox1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton1)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jTextField1)
-                                    .addComponent(jTextField2)
-                                    .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jPasswordField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jComboBox1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel3)
-                                    .addComponent(jLabel2)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                        .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                    .addComponent(jLabel5)))))
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel2)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(jLabel5)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(113, 113, 113)
-                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(61, 61, 61)))
                 .addContainerGap(87, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -206,9 +201,7 @@ public class SignUpInterface extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton1)
-                .addGap(26, 26, 26)
+                .addGap(60, 60, 60)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2))
@@ -216,7 +209,9 @@ public class SignUpInterface extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jPasswordField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3))
-                .addContainerGap(64, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
+                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(23, 23, 23))
         );
 
         pack();
@@ -226,46 +221,16 @@ public class SignUpInterface extends javax.swing.JFrame {
         System.exit(0);
     }//GEN-LAST:event_exitMenuItemActionPerformed
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt){
-
-        if(evt.getSource() == "Enter"){                // enter'a basmadan yazı yazılıp bırakıldığında harekete geçirmek için napmak lazım?
-            aUserName = evt.getActionCommand();        // "Enter" komutu doğru mu yoksa JTextField1 mi yapmak lazımn?
-            // aUserName = jTextField1.getText();
-        }
-    }
     private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
-        
-        if(evt.getSource() == jTextField2){        
-            aDeptCode = evt.getActionCommand();    // -- ikisinden biri çalışıyor olmalı !!
-        //  aDeptCode = jTextField2.getText();     // --
-        }
+        // TODO add your handling code here:
     }//GEN-LAST:event_jTextField2ActionPerformed
 
-    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt){
-        if (jComboBox1.isValid()){  // if'in içinde seçilmiş olduğunu gösteren metot
-            aYearCode =jComboBox1.getSelectedIndex(); // year code neye göre?   +  bu metottan emin değilim!!
-            // semesterCode = ;                          semester code'u neye göre belirliyoruz?
-        }
-    }
-    
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        frame.setVisible(false);
+        Login.frame.setVisible(true);
 
-        if(evt.getSource()== jButton1){  // kurslar bir yerden gelecek......
-            // TODO
-        }
-    }
-
-    private void jPasswordField2ActionPerformed(java.awt.event.ActionEvent evt){
-
-        if(evt.getSource() ==jPasswordField2){ // ??
-            if(jPasswordField1.getInputContext().equals(jPasswordField2.getInputContext())){ // inputu alan metot ??
-                aPassword = jPasswordField2.getName(); // inputu alan metot ??
-            }
-        }
-        else { // passwordlar uyuşmuyorsa   uyaran kırmızı yazı çıkmalı 
-            //TODO 
-        }
-    }
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -315,7 +280,7 @@ public class SignUpInterface extends javax.swing.JFrame {
     private javax.swing.JMenuItem exitMenuItem;
     private javax.swing.JMenu fileMenu;
     private javax.swing.JMenu helpMenu;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
