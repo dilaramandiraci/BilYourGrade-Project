@@ -14,13 +14,13 @@ public class Person implements Changeable{
     private ArrayList <Course> courses;
     
 
-    public Person(String aUserName, String aPassword, String aDeptCode, int aYearCode, int dataBaseId, int semesterCode)
+    public Person(String aUserName, String aPassword, String aDeptCode, int aYearCode, int adataBaseId, int semesterCode)
     {
         this.userName = aUserName;
         this.password = aPassword;
         this.deptCode = aDeptCode;
         this.year = aYearCode;
-        this.dataBaseId = dataBaseId;
+        this.dataBaseId = adataBaseId;
         this.semester = semesterCode;
         try {
             this.courses = getDefaultCourses();
@@ -29,6 +29,13 @@ public class Person implements Changeable{
             e.printStackTrace();
         }
         
+    }
+
+    public Person(String aUserName, String aPassword, int adataBaseId)
+    {
+        this.userName = aUserName;
+        this.password = aPassword;
+        this.dataBaseId = adataBaseId;
     }
 
     public String getUserName() {
