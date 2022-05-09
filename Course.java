@@ -46,6 +46,11 @@ public class Course implements Modifiable{
         return numericCode;
     }
 
+    public String getFulName()
+    {
+        return this.name + numericCode;
+    }
+
     public void setNumericCode(String numericCode) {
         this.numericCode = numericCode;
     }
