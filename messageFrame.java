@@ -23,12 +23,7 @@ public class messageFrame extends javax.swing.JFrame {
     mainMenu m;
     public messageFrame(Person oPerson) {
         this.person=oPerson;
-        try {
-            m=new mainMenu(oPerson);
-        } catch (Exception e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
+       
         initComponents();
     }
 
@@ -96,11 +91,17 @@ public class messageFrame extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         
        try {
-        Database d= new Database();
+        Database d= new Database();try {
+            m=new mainMenu(person);
+        } catch (Exception e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
         int id=person.getDataBaseId();
         int bb=m.getForActions();
         ArrayList<String> anam=d.getCourses(id);
         d.deleteCourse(id, anam.get(bb));
+        
         
     } catch (Exception e) {
         System.out.println("jButton1ActionPerformed");
