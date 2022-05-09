@@ -15,9 +15,26 @@ public class SignUpInterface extends javax.swing.JFrame {
     /**
      * Creates new form menu
      */
+    Database database;
+    
+    Person              aPerson;
+    String              aUserName;
+    String              aPassword;
+    String              aDeptCode;
+    int                 aYearCode;
+    int                 dataBaseId; 
+    int                 semesterCode;
+
     static JFrame frame = new SignUpInterface();
     public SignUpInterface() {
         initComponents();
+        aPerson = new Person(aUserName, aPassword, aDeptCode, aYearCode, dataBaseId, semesterCode);
+        try {
+            database = new Database();
+        } catch (Exception e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
     }
 
     /**
@@ -58,9 +75,27 @@ public class SignUpInterface extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField1ActionPerformed(evt);
+            }
+        });
+
         jTextField2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField2ActionPerformed(evt);
+            }
+        });
+
+        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox1ActionPerformed(evt);
+            }
+        });
+        
+        jPasswordField2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jPasswordField2ActionPerformed(evt);
             }
         });
 
@@ -221,37 +256,59 @@ public class SignUpInterface extends javax.swing.JFrame {
         System.exit(0);
     }//GEN-LAST:event_exitMenuItemActionPerformed
 
-    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField2ActionPerformed
-
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
-        frame.setVisible(false);
-        Login.frame.setVisible(true);
-    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt){
-        if (jComboBox1.isValid()){  // if'in içinde seçilmiş olduğunu gösteren metot
-            aYearCode = getTheYear((String) jComboBox1.getSelectedItem()) ;
-            semesterCode = getTheSemester((String) jComboBox1.getSelectedItem());
+    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt){
+        if(evt.getSource() == "Enter"){                   
+            aUserName = jTextField1.getText();
         }
     }
     
+    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
+        if(evt.getSource() == "Enter"){         
+            aDeptCode = jTextField2.getText();       
+        }
+    }//GEN-LAST:event_jTextField2ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+       
+        try {
+            database.createUser(aPerson);
+            dataBaseId = database.getDatabaseID(aUserName,aPassword);
+        } catch (Exception e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        aPerson.setDataBaseId(dataBaseId);
+
+        frame.setVisible(false);
+        Login.frame.setVisible(true);
+    }
+    
+    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt){
+        aYearCode = getTheYear((String) jComboBox1.getSelectedItem()) ;
+        semesterCode = getTheSemester((String) jComboBox1.getSelectedItem());      
+    }
+    private void jPasswordField2ActionPerformed(java.awt.event.ActionEvent evt){
+
+        if(jPasswordField1.getPassword().equals(jPasswordField2.getPassword())){
+            aPassword = String.valueOf(jPasswordField2.getPassword()); 
+        }
+        else { // passwordlar uyuşmuyorsa uyaran kırmızı yazı çıkmalı 
+            //TODO 
+        }
+            
+    }
     ////////////// methods to get year and semester as integers//////////////////
     private int getTheYear(String yearSemester){
-        String year = yearSemester.substring(0, 1);
+        String year = yearSemester.substring(0, 0);
         int yearInt = Integer.parseInt(year);
         return yearInt;
     }
     private int getTheSemester(String yearSemester){
-        String semester = yearSemester.substring(2,3); // sayıları kontrol et
+        String semester = yearSemester.substring(2,2); // sayıları kontrol et
         int semesterInt = Integer.parseInt(semester);
         return semesterInt;
     }
     /////////////////////////////////////////////////////////////////////////////
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {
-
-    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
