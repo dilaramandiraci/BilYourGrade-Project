@@ -216,7 +216,7 @@ allPanel.add(downPanel,BorderLayout.NORTH);
         allPanel.remove(middlePanel);
         JPanel newPanel = new JPanel();
         modifyMiddlepanel(newPanel);
-        allPanel.add(newPanel,BorderLayout.SOUTH);
+        allPanel.add(newPanel, BorderLayout.SOUTH);
         allPanel.validate();
         allPanel.repaint();
         
