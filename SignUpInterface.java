@@ -280,12 +280,13 @@ public class SignUpInterface extends javax.swing.JFrame {
         }
         aYearCode = getTheYear((String) jComboBox1.getSelectedItem()) ;
         semesterCode = getTheSemester((String) jComboBox1.getSelectedItem()); 
-        
+
         aPerson = new Person(aUserName, aPassword, aDeptCode, aYearCode, dataBaseId, semesterCode);
         
         try {
             database.createUser(aPerson);
             dataBaseId = database.getDatabaseID(aUserName,aPassword);
+            database.setDeptCode(aDeptCode, dataBaseId);
         } catch (Exception e) {
             // TODO Auto-generated catch block
             e.printStackTrace();

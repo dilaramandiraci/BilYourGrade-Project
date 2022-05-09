@@ -2,6 +2,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 /**
@@ -189,6 +190,23 @@ public class Database {
         } finally {
             System.out.println("scores updated!");
         }
+
+    }
+    public void setDeptcode(int id, String deptcode)
+    {
+        PreparedStatement statement;
+        try {
+            statement = con
+                            .prepareStatement("UPDATE users SET dept_code = '" + deptcode+ "'   WHERE id = " + id);
+        
+                            statement.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println("deptcode problem");
+            e.printStackTrace();
+        }
+
+                
+
 
     }
 
