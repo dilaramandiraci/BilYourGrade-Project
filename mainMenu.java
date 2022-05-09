@@ -121,13 +121,36 @@ public class mainMenu extends JFrame {
         upPanel.add(jLabel1);
         allPanel.add(upPanel);
         
+        modifyMiddlepanel(middlePanel);
+
+        
+allPanel.add(middlePanel);
+downPanel.setLayout(new GridLayout(1,2));
+downLeftPanel.add(jLabel7);
+downLeftPanel.add(jTextField1);
+downPanel.add(downLeftPanel);
+downRightPanel.setLayout(new GridLayout(5,1));
+downRightPanel.add(labelInput);
+downPanel.add(downRightPanel);
+allPanel.add(downPanel);
+
+
+
+
         
 
+        //pack();
+        add(allPanel);
+    }// </editor-fold> 
+
+    public void modifyMiddlepanel(JPanel aPanel)
+    {
         int n=courses.size();//Person.getCourses().size();
         JButton[] buttons=new JButton[n];
         JButton[] courseButtons=new JButton[n];
         
-        for(int i=0;i<n;i++){
+        for(int i=0;i<n;i++)
+        {
            courseTh=i;
            buttons[i]=new javax.swing.JButton();
            buttons[i].setBackground(new java.awt.Color(255, 0, 0));
@@ -153,27 +176,8 @@ public class mainMenu extends JFrame {
          middlePanel.add(courseButtons[i]);
          middlePanel.add(buttons[i]);
 
-
-
-}
-allPanel.add(middlePanel);
-downPanel.setLayout(new GridLayout(1,2));
-downLeftPanel.add(jLabel7);
-downLeftPanel.add(jTextField1);
-downPanel.add(downLeftPanel);
-downRightPanel.setLayout(new GridLayout(5,1));
-downRightPanel.add(labelInput);
-downPanel.add(downRightPanel);
-allPanel.add(downPanel);
-
-
-
-
-        
-
-        //pack();
-        add(allPanel);
-    }// </editor-fold> 
+        }
+    }   
     public void takeAddCourse(String s){
         String courseNAME="";
         String numericCode="";
@@ -199,6 +203,13 @@ allPanel.add(downPanel);
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {                                            
         // TODO add your handling code here:
         takeAddCourse(jTextField1.getText());
+        allPanel.remove(middlePanel);
+        JPanel newPanel = new JPanel();
+        modifyMiddlepanel(newPanel);
+        allPanel.add(newPanel);
+        allPanel.revalidate();
+        allPanel.repaint();
+        
         
     }                                           
 
