@@ -10,7 +10,7 @@ import javax.swing.JFrame;
 
 /**
  *
- * @author dilaramandiraciİ
+ * @author dilaramandiraci & Akif Erdem Tanyeri
  */
 public class SignUpInterface extends javax.swing.JFrame {
 
