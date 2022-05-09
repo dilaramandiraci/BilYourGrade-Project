@@ -39,7 +39,21 @@ public class mainMenu extends JFrame {
     static int courseTh;
     static boolean forChanges=false;
     private Person person;
+    public Person getPerson() {
+        return person;
+    }
+
     ArrayList<String> courses;
+    JButton[] buttons;
+    JButton[] courseButtons;
+    private int forActions=0;
+    public int getForActions() {
+        return forActions;
+    }
+
+    public void setForActions(int forActions) {
+        this.forActions = forActions;
+    }
     
 
     public mainMenu(Person aPerson) throws Exception {
@@ -223,23 +237,27 @@ allPanel.add(downPanel,BorderLayout.NORTH);
         
     }                                           
 
+          
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {                                         
         // TODO add your handling code here:
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-               
-                messageFrame.messageFrame.setVisible(true);
+                for(int i=0;i<buttons.length;i++){
+                    if(evt.getSource()==buttons[i]){
+                        setForActions(i);
+                    }
+                }
+                new messageFrame(person).setVisible(true);;
+               // messageFrame.messageFrame.setVisible(true);
                 
-            }});
-        
-    }                                        
+            }});                                
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {                                         
         // TODO add your handling code here:
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                
-                messageFrame.messageFrame.setVisible(true);
+               // messageFrame.messageFrame.setVisible(true);
                 
             }});
     }                                        
@@ -249,7 +267,7 @@ allPanel.add(downPanel,BorderLayout.NORTH);
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                
-                messageFrame.messageFrame.setVisible(true);
+                //messageFrame.messageFrame.setVisible(true);
                 
             }});
     }                                        
@@ -259,7 +277,7 @@ allPanel.add(downPanel,BorderLayout.NORTH);
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                
-                messageFrame.messageFrame.setVisible(true);
+               // messageFrame.messageFrame.setVisible(true);
                 
             }});
     }                                        
@@ -269,20 +287,26 @@ allPanel.add(downPanel,BorderLayout.NORTH);
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                
-                messageFrame.messageFrame.setVisible(true);
+                //messageFrame.messageFrame.setVisible(true);
                 
             }});
     }                                        
 
+                
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {                                         
         // TODO add your handling code here:
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                CourseInner.frame.setVisible(true);
+                for(int i=0;i<courseButtons.length;i++){
+                    if(evt.getSource()==courseButtons[i]){
+                        CourseInner(person.getCourses().get(i)).frame.setVisible(true);
+                    }
+                }
+                 
                setVisible(false);
                 
             }});
-    }                                        
+    }                             
 
                                             
     public static void main(String args[]) throws Exception {
