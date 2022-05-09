@@ -187,6 +187,7 @@ allPanel.add(downPanel);
         }
         Course newCourse=new Course(courseNAME, numericCode);
         person.addCourse(newCourse);
+        repaint();
     }                       
 
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {                                            
