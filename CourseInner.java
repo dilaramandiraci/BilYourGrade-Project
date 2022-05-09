@@ -41,7 +41,7 @@ import javax.swing.event.ChangeListener;
 public class CourseInner extends JFrame{
     
 
-    public static JFrame frame = new CourseInner();
+    //public static JFrame frame = new CourseInner();
     //VARIABLES
     Course course;
     private static final int FRAME_WIDTH = 700;
@@ -56,19 +56,19 @@ public class CourseInner extends JFrame{
     JPanel emptyPanel = new JPanel();
 
     //CONSTRUCTOR
-    public CourseInner(){
+    public CourseInner(Course aCourse, int dataBaseId){
 
-        
+        this.course = aCourse;
         setLocation(0, 0);
         setSize(FRAME_WIDTH, FRAME_HEIGHT);
 
 
         add(getBackButton());
         add(getCourseName());
-        for(int i = 0; i < 3 ; i++)//TO DO -> 5 yerine course un assesement sayısı gelicek
+        for(int i = 0; i < course.getAssesements().size() ; i++)//TO DO -> 5 yerine course un assesement sayısı gelicek
         {
             JLabel label = new JLabel();
-            label.setText("assesement name " + i);// TO DO -> thiscourse.assesements[i].getName();
+            label.setText("assesement name " + course.getAssesements().get(i).getName()); // TO DO -> thiscourse.assesements[i].getName();
             label.setSize(300, 30);
             label.setLocation(30, 120 + (i*100));
             label.setBackground(new java.awt.Color(0,200,0));
@@ -119,9 +119,9 @@ public class CourseInner extends JFrame{
 
     public static void main(String[] args) {
         
-        CourseInner courseInner = new CourseInner();
+        /* CourseInner courseInner = new CourseInner();
         
         courseInner.setVisible(true);  
-        courseInner.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        courseInner.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); */
     }
 }
