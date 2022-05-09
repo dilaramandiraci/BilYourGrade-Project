@@ -88,6 +88,7 @@ public class messageFrame extends javax.swing.JFrame {
                
                 messageFrame.setVisible(false);
                 
+                
             }});
     }//GEN-LAST:event_jButton1ActionPerformed
 
