@@ -132,7 +132,7 @@ downPanel.add(downLeftPanel);
 downRightPanel.setLayout(new GridLayout(5,1));
 downRightPanel.add(labelInput);
 downPanel.add(downRightPanel);
-allPanel.add(downPanel);
+allPanel.add(downPanel,BorderLayout.NORTH);
 
 
 
@@ -144,7 +144,15 @@ allPanel.add(downPanel);
     }// </editor-fold> 
 
     public void modifyMiddlepanel(JPanel aPanel)
-    {
+    { Database dbase;
+    try {
+        dbase = new Database();
+        courses = dbase.getCourses(person.getDataBaseId());
+    } catch (Exception e) {
+        // TODO Auto-generated catch block
+        e.printStackTrace();
+    }
+        
         int n=courses.size();//Person.getCourses().size();
         JButton[] buttons=new JButton[n];
         JButton[] courseButtons=new JButton[n];
@@ -173,8 +181,8 @@ allPanel.add(downPanel);
                 jButton6ActionPerformed(evt);
              }
          });
-         middlePanel.add(courseButtons[i]);
-         middlePanel.add(buttons[i]);
+         aPanel.add(courseButtons[i]);
+         aPanel.add(buttons[i]);
 
         }
     }   
@@ -194,6 +202,8 @@ allPanel.add(downPanel);
         try {
             Database d= new Database();
             d.AddCourse(person.getDataBaseId(), newCourse);
+            //middlePanel.repaint();
+            //initComponents();
         } catch (Exception e) {
             System.out.println("takeaddcourse");
             e.printStackTrace();
@@ -206,8 +216,8 @@ allPanel.add(downPanel);
         allPanel.remove(middlePanel);
         JPanel newPanel = new JPanel();
         modifyMiddlepanel(newPanel);
-        allPanel.add(newPanel);
-        allPanel.revalidate();
+        allPanel.add(newPanel,BorderLayout.SOUTH);
+        allPanel.validate();
         allPanel.repaint();
         
         

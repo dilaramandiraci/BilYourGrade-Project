@@ -300,7 +300,7 @@ public class Database {
                     courses.add(result.getString("course" + i + "name"));
 
                 } else {
-                    courses.add("");
+                    break;
                 }
             }
             System.out.println("Accessed courses!");
@@ -403,6 +403,7 @@ public class Database {
     public void deleteCourse(int id, String courseName) {
         ArrayList<String> courses = getCourses(id);
         int index = courses.indexOf(courseName);
+        courses.remove(index);
         try {
             PreparedStatement statement = con
                     .prepareStatement("UPDATE users SET course" + (index + 1) + "name = NULL WHERE id = " + id);
@@ -414,6 +415,7 @@ public class Database {
 
             update.executeUpdate();
             System.out.println("Course deleted!");
+            setCourses4user(courses, id);
 
         } catch (Exception e) {
             System.out.println(e);
@@ -425,11 +427,9 @@ public class Database {
         String courseName = aCourse.getName() + aCourse.getNumericCode();
         ArrayList<String> courses = getCourses(id);
         int index = courses.indexOf(courseName);
-        int empty=courses.indexOf("");
-        if (index < 0 && empty>=0) {
+        if (index < 0 && courses.size()<6) {
             try {
                 
-                courses.remove(empty);
                 courses.add(courseName);
                 setCourses4user(courses, id);
 
