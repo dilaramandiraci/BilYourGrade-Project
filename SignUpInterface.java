@@ -78,13 +78,13 @@ public class SignUpInterface extends javax.swing.JFrame {
 
         jTextField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                //jTextField1ActionPerformed(evt);
             }
         });
 
         jTextField2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField2ActionPerformed(evt);
+                //jTextField2ActionPerformed(evt);
             }
         });
 
