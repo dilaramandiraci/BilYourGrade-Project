@@ -37,10 +37,12 @@ public class mainMenu extends JFrame {
     int frameWeight=400;
     static int courseTh;
     static boolean forChanges=false;
+    static Person person;
     
 
-    public mainMenu() {
+    public mainMenu(Person aPerson) {
         initComponents();
+        this.person = aPerson;
     }
 
     /**
@@ -134,7 +136,7 @@ public class mainMenu extends JFrame {
             courseButtons[i]=new javax.swing.JButton();
             courseButtons[i].setBackground(new java.awt.Color(0, 0, 204));
             courseButtons[i].setForeground(new java.awt.Color(255, 255, 255));
-            courseButtons[i].setText(Person.getCourses().get(i).getName());
+            courseButtons[i].setText(person.getCourses().get(i).getFulName());
             courseButtons[i].setSize(160, 30);
             courseButtons[i].setLocation(20, i*50);
             courseButtons[i].addActionListener(new java.awt.event.ActionListener() {
@@ -178,7 +180,7 @@ allPanel.add(downPanel);
             }
         }
         Course newCourse=new Course(courseNAME, numericCode);
-        Person.addCourse(newCourse);
+        person.addCourse(newCourse);
     }                       
 
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {                                            
@@ -272,7 +274,7 @@ allPanel.add(downPanel);
             java.util.logging.Logger.getLogger(mainMenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-        mainMenu frame=new mainMenu();
+        mainMenu frame=new mainMenu(person);
 
         /* Create and display the form */
         
