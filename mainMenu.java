@@ -227,15 +227,24 @@ allPanel.add(downPanel,BorderLayout.NORTH);
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {                                            
         // TODO add your handling code here:
         takeAddCourse(jTextField1.getText());
+        reFreshFrame();
+        /* allPanel.remove(middlePanel);
+        JPanel newPanel = new JPanel();
+        modifyMiddlepanel(newPanel);
+        allPanel.add(newPanel, BorderLayout.SOUTH);
+        allPanel.validate();
+        allPanel.repaint(); */
+        
+        
+    }      
+    public void reFreshFrame(){
         allPanel.remove(middlePanel);
         JPanel newPanel = new JPanel();
         modifyMiddlepanel(newPanel);
         allPanel.add(newPanel, BorderLayout.SOUTH);
         allPanel.validate();
         allPanel.repaint();
-        
-        
-    }                                           
+    }                                     
 
           
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {                                         
@@ -247,10 +256,10 @@ allPanel.add(downPanel,BorderLayout.NORTH);
                         setForActions(i);
                     }
                 }
-                new messageFrame(person).setVisible(true);;
+                new messageFrame(person).setVisible(true);
                // messageFrame.messageFrame.setVisible(true);
                 
-            }});                                
+            }}); }                               
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {                                         
         // TODO add your handling code here:
