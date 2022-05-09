@@ -12,12 +12,16 @@ import javax.swing.JFrame;
  */
 public class calculateFrame extends javax.swing.JFrame {
 
+    private Course course;
+    private int databaseId;
     /**
      * Creates new form calculateFrame
      */
-    public static JFrame frame = new calculateFrame();
-    public calculateFrame() {
+    //public static JFrame frame = new calculateFrame();
+    public calculateFrame(Course aCourse, int adataBaseId) {
         initComponents();
+        this.course = aCourse;
+        this.databaseId = adataBaseId;
     }
 
     /**
@@ -234,8 +238,8 @@ public class calculateFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-               CourseInner.frame.setVisible(true);
-               frame.setVisible(false);
+               new CourseInner(course, databaseId);
+               setVisible(false);
             }
         });
     }                                        
@@ -268,11 +272,11 @@ public class calculateFrame extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
+        /* java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                frame.setVisible(true);
+                
             }
-        });
+        }); */
     }
 
     // Variables declaration - do not modify                     
