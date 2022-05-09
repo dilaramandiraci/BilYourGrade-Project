@@ -23,7 +23,7 @@ import javax.swing.JPanel;
 
 /**
  *
- * @author Damla İmre
+ * @authors Damla İmre & Dilara Mandıracı
  */
 
 
