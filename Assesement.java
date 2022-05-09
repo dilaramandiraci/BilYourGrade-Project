@@ -1,10 +1,11 @@
 /**
  * @author Dilara Mandıracı
+ * edited by Işıl Özgü
  */
 public class Assesement {
     private String name;
     private int weight;
-    private int grade;
+    private double grade;
 
     public Assesement(String aName, int aweight)
     {
@@ -28,11 +29,11 @@ public class Assesement {
         this.weight = weight;
     }
 
-     public int getGrade() {
+     public double getGrade() {
         return grade;
     }
 
-    public void setGrade(int grade) {
+    public void setGrade(double grade) {
         this.grade = grade;
     }
 }

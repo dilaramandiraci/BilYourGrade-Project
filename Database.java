@@ -46,7 +46,6 @@ public class Database {
         // mysql.setMethods4Courses(a, c, "MadeUpCourse");
     }
 
-    
     public Connection getConnection() throws Exception {
         try {
             String driver = "com.mysql.cj.jdbc.Driver";// "com.mysql.jdbc.Driver"-->previously
@@ -67,8 +66,8 @@ public class Database {
     }
 
     public void createUser(Person aPerson) throws Exception {
-        String username= aPerson.getUserName();
-        String password=aPerson.getPassword();
+        String username = aPerson.getUserName();
+        String password = aPerson.getPassword();
         try {
 
             // Connection con = getConnection();
@@ -152,7 +151,7 @@ public class Database {
         return 0;
     }
 
-    public void setScores(ArrayList<Integer> a, int id, String courseName) {
+    public void setScores(ArrayList<Double> a, int id, String courseName) {
         try {
 
             // Connection con = getConnection();
@@ -172,16 +171,18 @@ public class Database {
 
     }
 
-    public void updateScores(ArrayList<Integer> a, int id, String courseName) {
+    public void updateScores(ArrayList<Double> a, int id, String courseName) {
         try {
 
             // Connection con = getConnection();
             for (int i = 0; i < a.size(); i++) {
-                PreparedStatement create = con.prepareStatement(
-                        "UPDATE scores SET method" + (i + 1) + "grade = " + a.get(i) +
-                                " WHERE userid = " + id + " AND courseName = '" + courseName + "'");
+                if (a.get(i) != null) {
+                    PreparedStatement create = con.prepareStatement(
+                            "UPDATE scores SET method" + (i + 1) + "grade = " + a.get(i) +
+                                    " WHERE userid = " + id + " AND courseName = '" + courseName + "'");
 
-                create.executeUpdate();
+                    create.executeUpdate();
+                }
             }
         } catch (Exception e) {
             System.out.println("smtin went wrong" + e);
@@ -249,9 +250,15 @@ public class Database {
         }
     }
 
-    public ArrayList<Integer> getScores(int id, String courseName) {
+    /**
+     * CAUTION SOME ELEMENTS OF THE ARRAYLIST MAY BE NULL
+     * @param id
+     * @param courseName
+     * @return scores Double ArrayList
+     */
+    public ArrayList<Double> getScores(int id, String courseName) {
         try {
-            ArrayList<Integer> scores = new ArrayList<>();
+            ArrayList<Double> scores = new ArrayList<>();
 
             for (int i = 1; i < 9; i++) {
                 PreparedStatement statement = con
@@ -262,10 +269,10 @@ public class Database {
                 result.next();
 
                 if (result.getString("method" + i + "grade") != null) {
-                    scores.add(Integer.parseInt(result.getString("method" + i + "grade")));
+                    scores.add(Double.parseDouble(result.getString("method" + i + "grade")));
 
                 } else {
-                    break;
+                    scores.add(null);
                 }
             }
             System.out.println("Accessed scores!");
@@ -365,26 +372,24 @@ public class Database {
         try {
             ArrayList<Integer> mw = new ArrayList<>();
 
-             
-                PreparedStatement statement = con
-                        .prepareStatement("SELECT * FROM lettergrade WHERE course_name = '"+ courseName + "'");
-                ResultSet result = statement.executeQuery();
+            PreparedStatement statement = con
+                    .prepareStatement("SELECT * FROM lettergrade WHERE course_name = '" + courseName + "'");
+            ResultSet result = statement.executeQuery();
 
-                while (result.next()) {
-                    mw.add(Integer.parseInt(result.getString("F")));
-                    mw.add(Integer.parseInt(result.getString("D")));
-                    mw.add(Integer.parseInt(result.getString("D+")));
-                    mw.add(Integer.parseInt(result.getString("C-")));
-                    mw.add(Integer.parseInt(result.getString("C")));
-                    mw.add(Integer.parseInt(result.getString("C+")));
-                    mw.add(Integer.parseInt(result.getString("B-")));
-                    mw.add(Integer.parseInt(result.getString("B")));
-                    mw.add(Integer.parseInt(result.getString("B+")));
-                    mw.add(Integer.parseInt(result.getString("A-")));
-                    mw.add(Integer.parseInt(result.getString("A")));
-                }
+            while (result.next()) {
+                mw.add(Integer.parseInt(result.getString("F")));
+                mw.add(Integer.parseInt(result.getString("D")));
+                mw.add(Integer.parseInt(result.getString("D+")));
+                mw.add(Integer.parseInt(result.getString("C-")));
+                mw.add(Integer.parseInt(result.getString("C")));
+                mw.add(Integer.parseInt(result.getString("C+")));
+                mw.add(Integer.parseInt(result.getString("B-")));
+                mw.add(Integer.parseInt(result.getString("B")));
+                mw.add(Integer.parseInt(result.getString("B+")));
+                mw.add(Integer.parseInt(result.getString("A-")));
+                mw.add(Integer.parseInt(result.getString("A")));
+            }
 
-            
             System.out.println("Accessed borders!");
             return mw;
 
@@ -404,7 +409,8 @@ public class Database {
 
             statement.executeUpdate();
             PreparedStatement update = con
-                    .prepareStatement("DELETE FROM scores WHERE userid = " + id+" AND courseName ='"+courseName+"'");
+                    .prepareStatement(
+                            "DELETE FROM scores WHERE userid = " + id + " AND courseName ='" + courseName + "'");
 
             update.executeUpdate();
             System.out.println("Course deleted!");
@@ -416,34 +422,29 @@ public class Database {
     }
 
     public void AddCourse(int id, Course aCourse) {
-        String courseName= aCourse.getName()+aCourse.getNumericCode();
+        String courseName = aCourse.getName() + aCourse.getNumericCode();
         ArrayList<String> courses = getCourses(id);
         int index = courses.indexOf(courseName);
         if (index < 0 && courses.size() < 6) {
             try {
                 courses.add(courseName);
                 setCourses4user(courses, id);
-               
-                
+
                 PreparedStatement statement = con.prepareStatement("SELECT courseName FROM courses ");
                 ResultSet result = statement.executeQuery();
-                while(result.next())
-                {
-                    if(result.getString("courseName").equals(courseName))
-                    {
+                while (result.next()) {
+                    if (result.getString("courseName").equals(courseName)) {
                         return;
                     }
                 }
-                ArrayList<Assesement> a= aCourse.getAssesements();
-                ArrayList<Integer> weights=new ArrayList<>();
-                ArrayList<String> names=new ArrayList<>();
-                for(int i =0;i<a.size();i++)
-                {
-                    weights.add(a.get(i).getGrade());
+                ArrayList<Assesement> a = aCourse.getAssesements();
+                ArrayList<Integer> weights = new ArrayList<>();
+                ArrayList<String> names = new ArrayList<>();
+                for (int i = 0; i < a.size(); i++) {
+                    weights.add(a.get(i).getWeight());
                     names.add(a.get(i).getName());
                 }
                 setAssessments4Course(weights, names, courseName);
-                
 
                 System.out.println("Course added!");
 
