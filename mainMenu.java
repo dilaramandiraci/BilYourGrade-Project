@@ -198,7 +198,7 @@ allPanel.add(downPanel,BorderLayout.NORTH);
             }
         }
          Course newCourse=new Course(courseNAME, numericCode);
-        // person.addCourse(newCourse);
+         person.addCourse(newCourse);
         try {
             Database d= new Database();
             d.AddCourse(person.getDataBaseId(), newCourse);
