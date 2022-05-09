@@ -212,6 +212,11 @@ public class Database {
 
     public void setCourses4user(ArrayList<String> courseNames, int id) throws Exception {
         try {
+            PreparedStatement statement0 = con
+                        .prepareStatement("UPDATE users SET course1name = NULL,course1name = NULL, course2name = NULL,course3name = NULL, "+
+                        "course4name = NULL, course5name = NULL, course6name = NULL   WHERE id = " + id);
+
+                statement0.executeUpdate();
             for (int i = 0; i < courseNames.size(); i++) {
                 PreparedStatement statement = con
                         .prepareStatement("UPDATE users SET course" + (i + 1) + "name = '" + courseNames.get(i)
@@ -420,20 +425,25 @@ public class Database {
 
     public void deleteCourse(int id, String courseName) {
         ArrayList<String> courses = getCourses(id);
-        int index = courses.indexOf(courseName);
+        int index = courses.indexOf(courseName);System.out.println(courses.size());
+        System.out.println(index+"index");
         courses.remove(index);
+        System.out.println(courses.size());
+        
+        
         try {
-            PreparedStatement statement = con
-                    .prepareStatement("UPDATE users SET course" + (index + 1) + "name = NULL WHERE id = " + id);
+             setCourses4user(courses, id);
+            // PreparedStatement statement = con
+            //         .prepareStatement("UPDATE users SET course" + (index + 1) + "name = NULL WHERE id = " + id);
 
-            statement.executeUpdate();
+             //statement.executeUpdate();
             PreparedStatement update = con
                     .prepareStatement(
                             "DELETE FROM scores WHERE userid = " + id + " AND courseName ='" + courseName + "'");
 
             update.executeUpdate();
             System.out.println("Course deleted!");
-            setCourses4user(courses, id);
+            
 
         } catch (Exception e) {
             System.out.println(e);

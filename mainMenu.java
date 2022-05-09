@@ -168,8 +168,8 @@ allPanel.add(downPanel,BorderLayout.NORTH);
     }
         
         int n=courses.size();//Person.getCourses().size();
-        JButton[] buttons=new JButton[n];
-        JButton[] courseButtons=new JButton[n];
+         buttons=new JButton[n];
+         courseButtons=new JButton[n];
         
         for(int i=0;i<n;i++)
         {
@@ -212,7 +212,7 @@ allPanel.add(downPanel,BorderLayout.NORTH);
             }
         }
          Course newCourse=new Course(courseNAME, numericCode);
-         person.addCourse(newCourse);
+         //person.addCourse(newCourse);personun constructordan dolayı course arraylisti boş
         try {
             Database d= new Database();
             d.AddCourse(person.getDataBaseId(), newCourse);
@@ -227,6 +227,7 @@ allPanel.add(downPanel,BorderLayout.NORTH);
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {                                            
         // TODO add your handling code here:
         takeAddCourse(jTextField1.getText());
+       
         reFreshFrame();
         /* allPanel.remove(middlePanel);
         JPanel newPanel = new JPanel();
@@ -256,6 +257,7 @@ allPanel.add(downPanel,BorderLayout.NORTH);
                         setForActions(i);
                     }
                 }
+                //setVisible(false);
                 new messageFrame(person).setVisible(true);
                // messageFrame.messageFrame.setVisible(true);
                 

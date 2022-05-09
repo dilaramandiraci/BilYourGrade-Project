@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 import javax.swing.JFrame;
 
 /*
@@ -92,12 +94,23 @@ public class messageFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-       
-                person.dropCourse(person.getCourses().get(m.getForActions()));
+        
+       try {
+        Database d= new Database();
+        int id=person.getDataBaseId();
+        int bb=m.getForActions();
+        ArrayList<String> anam=d.getCourses(id);
+        d.deleteCourse(id, anam.get(bb));
+        
+    } catch (Exception e) {
+        System.out.println("jButton1ActionPerformed");
+        e.printStackTrace();
+    }
+               // person.dropCourse(person.getCourses().get(m.getForActions()));
                
                 this.setVisible(false);
                 m.reFreshFrame();
+                
                 
            
     }//GEN-LAST:event_jButton1ActionPerformed
