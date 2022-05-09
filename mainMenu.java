@@ -185,9 +185,15 @@ allPanel.add(downPanel);
 
             }
         }
-        Course newCourse=new Course(courseNAME, numericCode);
-        person.addCourse(newCourse);
-        repaint();
+         Course newCourse=new Course(courseNAME, numericCode);
+        // person.addCourse(newCourse);
+        try {
+            Database d= new Database();
+            d.AddCourse(person.getDataBaseId(), newCourse);
+        } catch (Exception e) {
+            System.out.println("takeaddcourse");
+            e.printStackTrace();
+        }
     }                       
 
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {                                            

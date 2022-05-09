@@ -425,8 +425,11 @@ public class Database {
         String courseName = aCourse.getName() + aCourse.getNumericCode();
         ArrayList<String> courses = getCourses(id);
         int index = courses.indexOf(courseName);
-        if (index < 0 && courses.size() < 6) {
+        int empty=courses.indexOf("");
+        if (index < 0 && empty>=0) {
             try {
+                
+                courses.remove(empty);
                 courses.add(courseName);
                 setCourses4user(courses, id);
 
@@ -449,10 +452,11 @@ public class Database {
                 System.out.println("Course added!");
 
             } catch (Exception e) {
+                System.out.println("You cannot add this course!index"+index+"ww");
                 System.out.println(e);
             }
         }
-        System.out.println("You cannot add this course!");
+        
 
     }
 
