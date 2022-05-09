@@ -123,7 +123,7 @@ public class mainMenu extends JFrame {
         
         
 
-        int n=4 ;//Person.getCourses().size();
+        int n=courses.size();//Person.getCourses().size();
         JButton[] buttons=new JButton[n];
         JButton[] courseButtons=new JButton[n];
         
