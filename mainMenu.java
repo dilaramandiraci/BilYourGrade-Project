@@ -37,7 +37,7 @@ public class mainMenu extends JFrame {
     int frameWeight=400;
     static int courseTh;
     static boolean forChanges=false;
-    static Person person;
+    static private Person person;
     
 
     public mainMenu(Person aPerson) {
