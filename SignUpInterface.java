@@ -272,7 +272,7 @@ public class SignUpInterface extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         aUserName = jTextField1.getText();
         aDeptCode = jTextField2.getText();
-        if(jPasswordField1.getPassword().equals(jPasswordField2.getPassword())){
+        if(String.valueOf(jPasswordField1.getPassword()).equals(String.valueOf(jPasswordField1.getPassword()))){
             aPassword = String.valueOf(jPasswordField2.getPassword()); 
         }
         else { // passwordlar uyuşmuyorsa uyaran kırmızı yazı çıkmalı 
@@ -286,7 +286,7 @@ public class SignUpInterface extends javax.swing.JFrame {
         try {
             database.createUser(aPerson);
             dataBaseId = database.getDatabaseID(aUserName,aPassword);
-            database.setDeptCode(aDeptCode, dataBaseId);
+            database.setDeptcode(dataBaseId,aDeptCode);
         } catch (Exception e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
