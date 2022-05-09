@@ -70,17 +70,18 @@ public class CourseInner extends JFrame{
             JLabel label = new JLabel();
             label.setText("assesement name " + course.getAssesements().get(i).getName()); // TO DO -> thiscourse.assesements[i].getName();
             label.setSize(300, 30);
-            label.setLocation(30, 120 + (i*100));
+            label.setLocation(30, 120 + (i*70));
             label.setBackground(new java.awt.Color(0,200,0));
             add(label);
 
-            JTextField textField = new JTextField();
+            texts.add(new JTextField());
             
-            textField.setSize(500, 60);
-            textField.setLocation(40, 160 + (i*100));
-            textField.setBackground(new java.awt.Color(0,200,0));
-            add(textField);
+            texts.get(i).setSize(300, 30);
+            texts.get(i).setLocation(40, 150 + (i*70));
+            texts.get(i).setBackground(new java.awt.Color(0,200,0));
+            add(texts.get(i));
         }
+        
 
         add(getCalculateButton());
         add(emptyPanel);
