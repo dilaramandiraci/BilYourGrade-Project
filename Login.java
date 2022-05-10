@@ -153,7 +153,7 @@ public class Login extends javax.swing.JFrame {
                     }
                     else
                     {
-                        JOptionPane.showMessageDialog(frame, "wrong password");
+                        JOptionPane.showMessageDialog(frame, "wrong password or username");
                     }
                 } catch (Exception e) {
                     // TODO Auto-generated catch block
