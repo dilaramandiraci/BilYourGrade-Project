@@ -63,25 +63,31 @@ public class CourseInner extends JFrame implements ActionListener{
             dbase = new Database();
             forOpening=new mainMenu(oPerson);
         } catch (Exception e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         }
+
         this.course = aCourse;
         this.databaseId = AdataBaseId;
+<<<<<<< Updated upstream
         
+=======
+
+>>>>>>> Stashed changes
         setLocation(0, 0);
         setSize(FRAME_WIDTH, FRAME_HEIGHT);
 
         int assesementCount = dbase.getMethodNames(course.getFulName()).size();
+
         add(getBackButton());
         add(getCourseName());
+
         for(int i = 0; i < assesementCount ; i++)//TO DO -> 5 yerine course un assesement sayısı gelicek
         {
             JLabel label = new JLabel();
-            label.setText("assesement name " + dbase.getMethodNames(course.getFulName()).get(i)); // TO DO -> thiscourse.assesements[i].getName();
+            label.setText(dbase.getMethodNames(course.getFulName()).get(i)); // TO DO -> thiscourse.assesements[i].getName();
             label.setSize(300, 30);
             label.setLocation(30, 120 + (i*70));
-            label.setBackground(new java.awt.Color(0,200,0));
+            label.setBackground(new java.awt.Color(50,200,50));
             add(label);
 
             texts.add(new JTextField());
