@@ -46,13 +46,13 @@ public class mainMenu extends JFrame {
     ArrayList<String> courses;
     JButton[] buttons;
     JButton[] courseButtons;
-    private int forActions=0;
+    private static int forActions=0;
     public int getForActions() {
         return forActions;
     }
 
-    public void setForActions(int forActions) {
-        this.forActions = forActions;
+    public void setForActions(int forActions1) {
+        forActions = forActions1;
     }
     
 
@@ -250,18 +250,19 @@ allPanel.add(downPanel,BorderLayout.NORTH);
           
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {                                         
         // TODO add your handling code here:
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
+        
+             
                 for(int i=0;i<buttons.length;i++){
-                    if(evt.getSource()==buttons[i]){
+                    if(evt.getSource().equals(buttons[i])){
                         setForActions(i);
+                        System.out.println(i+"kaçıncı ders");
                     }
                 }
                 //setVisible(false);
-                new messageFrame(person).setVisible(true);
+                new messageFrame(person).setVisible(true);}
                // messageFrame.messageFrame.setVisible(true);
                 
-            }}); }                               
+                                         
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {                                         
         // TODO add your handling code here:
