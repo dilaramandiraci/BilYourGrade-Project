@@ -52,8 +52,8 @@ public class CourseInner extends JFrame implements ActionListener{
     JButton calculate = new JButton();
     Database dbase;
     int databaseId;
-
-    int assesementCount = dbase.getMethodNames(course.getFulName()).size();
+    int assesementCount;
+    
 
     //CONSTRUCTOR
     public CourseInner(Course aCourse, int AdataBaseId){
@@ -69,7 +69,7 @@ public class CourseInner extends JFrame implements ActionListener{
         setLocation(0, 0);
         setSize(FRAME_WIDTH, FRAME_HEIGHT);
 
-
+        int assesementCount = dbase.getMethodNames(course.getFulName()).size();
         add(getBackButton());
         add(getCourseName());
         for(int i = 0; i < assesementCount ; i++)//TO DO -> 5 yerine course un assesement sayısı gelicek
@@ -183,7 +183,7 @@ public class CourseInner extends JFrame implements ActionListener{
     }
 
     public static void main(String[] args) {
-        Course course = new Course("barçın102", "31");
+        Course course = new Course("MATH", "102");
         CourseInner courseInner = new CourseInner(course,31);
         
         courseInner.setVisible(true);  
