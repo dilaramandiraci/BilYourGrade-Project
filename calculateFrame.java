@@ -67,27 +67,27 @@ public class calculateFrame extends javax.swing.JFrame {
         jLabel2.setBackground(new java.awt.Color(0, 153, 0));
         jLabel2.setText(" A");
         jLabel2.setOpaque(true);
+        
+        jLabel6.setFont(new java.awt.Font("Arial Black", 0, 12)); // NOI18N
+        jLabel6.setText("You need   points");
 
         jLabel3.setBackground(new java.awt.Color(0, 204, 51));
         jLabel3.setText(" A-");
         jLabel3.setOpaque(true);
+        
+        jLabel7.setFont(new java.awt.Font("Arial Black", 0, 12)); // NOI18N
+        jLabel7.setText("jLabel7");
 
         jLabel4.setBackground(new java.awt.Color(102, 255, 51));
         jLabel4.setText(" B+");
         jLabel4.setOpaque(true);
+        
+        jLabel8.setFont(new java.awt.Font("Arial Black", 0, 12)); // NOI18N
+        jLabel8.setText("jLabel8");
 
         jLabel5.setBackground(new java.awt.Color(153, 255, 51));
         jLabel5.setText(" B");
         jLabel5.setOpaque(true);
-
-        jLabel6.setFont(new java.awt.Font("Arial Black", 0, 12)); // NOI18N
-        jLabel6.setText("You need   points");
-
-        jLabel7.setFont(new java.awt.Font("Arial Black", 0, 12)); // NOI18N
-        jLabel7.setText("jLabel7");
-
-        jLabel8.setFont(new java.awt.Font("Arial Black", 0, 12)); // NOI18N
-        jLabel8.setText("jLabel8");
 
         jLabel9.setFont(new java.awt.Font("Arial Black", 0, 12)); // NOI18N
         jLabel9.setText("jLabel9");
@@ -106,33 +106,36 @@ public class calculateFrame extends javax.swing.JFrame {
         jLabel13.setFont(new java.awt.Font("Arial Black", 0, 12)); // NOI18N
         jLabel13.setText("jLabel11");
 
-        jLabel14.setFont(new java.awt.Font("Arial Black", 0, 12)); // NOI18N
-        jLabel14.setText("jLabel11");
-
-        jLabel15.setFont(new java.awt.Font("Arial Black", 0, 12)); // NOI18N
-        jLabel15.setText("jLabel11");
-
-        jLabel16.setFont(new java.awt.Font("Arial Black", 0, 12)); // NOI18N
-        jLabel16.setText("jLabel11");
-
-        jLabel17.setFont(new java.awt.Font("Arial Black", 0, 12)); // NOI18N
-        jLabel17.setText("jLabel11");
-
+        
         jLabel19.setBackground(new java.awt.Color(255, 204, 102));
         jLabel19.setText(" C");
         jLabel19.setOpaque(true);
 
+        jLabel14.setFont(new java.awt.Font("Arial Black", 0, 12)); // NOI18N
+        jLabel14.setText("jLabel11");
+        
         jLabel20.setBackground(new java.awt.Color(255, 153, 51));
         jLabel20.setText(" C-");
         jLabel20.setOpaque(true);
 
+        jLabel15.setFont(new java.awt.Font("Arial Black", 0, 12)); // NOI18N
+        jLabel15.setText("jLabel11");
+        
         jLabel21.setBackground(new java.awt.Color(255, 102, 0));
         jLabel21.setText(" D+");
         jLabel21.setOpaque(true);
 
+        jLabel16.setFont(new java.awt.Font("Arial Black", 0, 12)); // NOI18N
+        jLabel16.setText("jLabel11");
+
         jLabel22.setBackground(new java.awt.Color(255, 51, 0));
         jLabel22.setText(" D");
         jLabel22.setOpaque(true);
+
+        jLabel17.setFont(new java.awt.Font("Arial Black", 0, 12)); // NOI18N
+        jLabel17.setText("jLabel11");
+
+
 
         jButton1.setBackground(new java.awt.Color(0, 0, 0));
         jButton1.setFont(new java.awt.Font("Arial Black", 0, 12)); // NOI18N
