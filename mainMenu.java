@@ -100,9 +100,9 @@ public class mainMenu extends JFrame {
         
 
         jLabel1.setBackground(new java.awt.Color(255, 0, 51));
-        jLabel1.setFont(new java.awt.Font("Britannic Bold", 0, 12)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Britannic Bold", 0, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(51, 0, 255));
-        jLabel1.setText("COURSES");
+        jLabel1.setText("   COURSES");
         jLabel1.setSize(300, 30);
         jLabel1.setLocation(40, 60);
         
@@ -126,10 +126,10 @@ public class mainMenu extends JFrame {
             }
         });
 
-        jLabel8.setFont(new java.awt.Font("Viner Hand ITC", 0, 12)); // NOI18N
-        jLabel8.setText("Welcome "+person.getUserName());
+        jLabel8.setFont(new java.awt.Font("Rockwell", 3, 20)); // NOI18N
+        jLabel8.setText("   Welcome  "+person.getUserName().toUpperCase());
         jLabel8.setSize(100, 30);
-        jLabel8.setLocation(5, 100);
+        jLabel8.setLocation(60, 100);
 
         labelInput.setText("Enter the coure as (CS 101)");
         labelInput.setSize(200, 30);
@@ -251,6 +251,8 @@ allPanel.add(downPanel,BorderLayout.SOUTH);
         middlePanel = new JPanel();
         modifyMiddlepanel(middlePanel);
         allPanel.add(middlePanel, BorderLayout.CENTER);
+        allPanel.remove(downPanel);
+        allPanel.add(downPanel, BorderLayout.SOUTH);
         allPanel.validate();
         allPanel.repaint();
     }                                     

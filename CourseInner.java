@@ -200,17 +200,18 @@ public class CourseInner extends JFrame implements ActionListener{
                 
                 assesementGrades[i] = assesementGrade;
 
-                ArrayList<Double> scores = new ArrayList<Double>();
-
-                for(int j=0; j<assesementGrades.length; j++)
-                {
-                    scores.add(assesementGrades[j]);
-                }
-
-                dbase.setScores(scores, databaseId, course.getFulName());
+                
 
             }
+            ArrayList<Double> scores = new ArrayList<Double>();
 
+            for(int j=0; j<assesementGrades.length; j++)
+            {
+                scores.add(assesementGrades[j]);
+            }
+
+            dbase.setScores(scores, databaseId, course.getFulName());
+            
             for(int i = 0 ; i < assesementGrades.length ; i++)
             {
                 totalGrade += assesementGrades[i] * dbase.getMethodWeights(course.getFulName()).get(i); 

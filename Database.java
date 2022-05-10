@@ -60,7 +60,7 @@ public class Database {
             System.out.println("Connected");
             return conn;
         } catch (Exception e) {
-            System.out.println(e);
+            System.out.println(e+"connection issue");
         }
 
         return null;
@@ -103,7 +103,7 @@ public class Database {
             return deptno;
 
         } catch (Exception e) {
-            System.out.println(e);
+            System.out.println(e+"deptnoissue");
         }
         return null;
 
@@ -124,7 +124,7 @@ public class Database {
             return databaseid;
 
         } catch (Exception e) {
-            System.out.println(e);
+            System.out.println(e+"databaseid issue");
         }
         return 0;
     }
@@ -147,7 +147,7 @@ public class Database {
             System.out.println("This user does not exist!");
 
         } catch (Exception e) {
-            System.out.println(e);
+            System.out.println(e+"userexistproblem");
         }
         return 0;
     }
@@ -158,14 +158,15 @@ public class Database {
             // Connection con = getConnection();
             // for (int i = 0; i < a.size(); i++)
             PreparedStatement create = con.prepareStatement(
-                    "INSERT INTO scores (userid, courseName) VALUES ( '" + id + "', '"
+                    "INSERT IGNORE INTO scores (userid, courseName) VALUES ( '" + id + "', '"
                             + courseName + "')");
+                            System.out.println("insertignote setscores comin");
 
             create.executeUpdate();
             updateScores(a, id, courseName);
 
         } catch (Exception e) {
-            System.out.println("smtin went wrong" + e);
+            System.out.println("smtin went wrong setscores " + e);
         } finally {
             System.out.println("scores set!");
         }
@@ -181,12 +182,12 @@ public class Database {
                     PreparedStatement create = con.prepareStatement(
                             "UPDATE scores SET method" + (i + 1) + "grade = " + a.get(i) +
                                     " WHERE userid = " + id + " AND courseName = '" + courseName + "'");
-
+                    System.out.println("updatescorescomin");
                     create.executeUpdate();
                 }
             }
         } catch (Exception e) {
-            System.out.println("smtin went wrong" + e);
+            System.out.println("smtin went wrong updatescores" + e);
         } finally {
             System.out.println("scores updated!");
         }
