@@ -14,12 +14,12 @@ public class calculateFrame extends javax.swing.JFrame {
 
     private Course course;
     private int databaseId;
-    private int totalGrade;
+    private double totalGrade;
     /**
      * Creates new form calculateFrame
      */
     //public static JFrame frame = new calculateFrame();
-    public calculateFrame(Course aCourse, int adataBaseId, int totalGrade) {
+    public calculateFrame(Course aCourse, int adataBaseId, double totalGrade) {
         
         this.course = aCourse;
         this.databaseId = adataBaseId;

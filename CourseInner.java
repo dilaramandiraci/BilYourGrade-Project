@@ -179,6 +179,9 @@ public class CourseInner extends JFrame implements ActionListener{
                 totalGrade += assesementGrades[i] * dbase.getMethodWeights(course.getFulName()).get(i); 
             }
 
+            calculateFrame calculateFrame = new calculateFrame(course, databaseId, totalGrade);
+            calculateFrame.setVisible(true);
+
             
 
         }
