@@ -312,14 +312,6 @@ public class calculateFrame extends javax.swing.JFrame {
         }); */
     //}
 
-    
-    public static void main(String[] args) {
-        Course course = new Course("barçın102", "31");
-        calculateFrame courseInner = new calculateFrame(course,31,80);
-        
-        courseInner.setVisible(true);  
-        courseInner.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 
-    }
 
     // Variables declaration - do not modify                     
     private javax.swing.JButton jButton1;
