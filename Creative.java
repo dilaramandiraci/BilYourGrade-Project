@@ -63,12 +63,21 @@ public class Creative extends JFrame implements ActionListener{
 
         setLocation(0, 0);
         setSize(FRAME_WIDTH, FRAME_HEIGHT);
+        this.setTitle("BilYourGrade");
 
         this.assesementCount = assesementCount;
 
-        add(getBackButton());
+
         add(getCourseName());
 
+        backButton.addActionListener(this);;
+        backButton.setText("<--");
+        backButton.setFont(new java.awt.Font("Arial Black", 0, 14));
+        backButton.setSize(60, 30);
+        backButton.setLocation(20,20);
+        backButton.setForeground(Color.WHITE);
+        backButton.setBackground(Color.BLACK);
+        add(backButton);
         
         JLabel weightsLabel = new JLabel();
         weightsLabel.setText("Weights "); // TO DO -> thiscourse.assesements[i].getName();
@@ -137,16 +146,6 @@ public class Creative extends JFrame implements ActionListener{
         
     }
     
-    public JButton getBackButton(){
-
-        backButton.setText("<--");
-        backButton.setFont(new java.awt.Font("Arial Black", 0, 14));
-        backButton.setSize(60, 30);
-        backButton.setLocation(20,20);
-        backButton.setForeground(Color.WHITE);
-        backButton.setBackground(Color.BLACK);
-        return backButton;
-    }
     
     public JLabel getCourseName(){
         courseName.setText("CREATIVE");
@@ -239,8 +238,8 @@ public class Creative extends JFrame implements ActionListener{
                 totalGrade += assesementGrades[i] * Double.valueOf(weights.get(i).getText()); 
             }
 
-            calculateFrame calculateFrame = new calculateFrame(totalGrade);
-            calculateFrame.setVisible(true);
+            JOptionPane.showMessageDialog(this,"Your Total Grade Is: " + totalGrade);
+
 
             
 
@@ -263,6 +262,12 @@ public class Creative extends JFrame implements ActionListener{
             Creative newCreative = new Creative(assesementCount);
             newCreative.setVisible(true);  
             newCreative.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 
+        }
+        
+        if(e.getSource() == backButton)
+        {
+            System.out.println("ana");
+            this.setVisible(false);
         }
 
     }

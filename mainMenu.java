@@ -109,8 +109,7 @@ public class mainMenu extends JFrame{
         creativeButton.setForeground(Color.WHITE);
         creativeButton.setFont(new java.awt.Font("Arial Black", 0, 23));
         creativeButton.setSize(50, 50);
-        creativeButton.setLocation(10,frameHeight-100);
-        creativeButton.setBackground(new java.awt.Color(100,20,20));
+        creativeButton.setBackground(new java.awt.Color(51,255,54));
         add(creativeButton);
 
         
@@ -165,6 +164,7 @@ allPanel.add(middlePanel, BorderLayout.CENTER);
 downPanel.setLayout(new GridLayout(1,2));
 downLeftPanel.add(jLabel7);
 downLeftPanel.add(jTextField1);
+downLeftPanel.add(creativeButton);
 downPanel.add(downLeftPanel);
 downRightPanel.setLayout(new GridLayout(5,1));
 downRightPanel.add(labelInput);
@@ -292,7 +292,7 @@ allPanel.add(downPanel,BorderLayout.SOUTH);
                                          
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {
-        this.setVisible(false);                                         
+        //this.setVisible(false);                                         
         Creative creativeFrame = new Creative(1);
         creativeFrame.setVisible(true);
         creativeFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 
