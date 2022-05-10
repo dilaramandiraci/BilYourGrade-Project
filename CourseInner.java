@@ -77,7 +77,6 @@ public class CourseInner extends JFrame implements ActionListener{
         for(int i = 0; i < assesementCount ; i++)//TO DO -> 5 yerine course un assesement sayısı gelicek
         {
             JLabel label = new JLabel();
-            System.out.println(assesementCount+"barrçııınnn");
             label.setText("assesement name " + dbase.getMethodNames(course.getFulName()).get(i) + " Weight %" + dbase.getMethodWeights(course.getFulName()).get(i)) ; // TO DO -> thiscourse.assesements[i].getName();
             label.setSize(300, 30);
             label.setLocation(30, 120 + (i*70));
@@ -113,6 +112,7 @@ public class CourseInner extends JFrame implements ActionListener{
     
     public JLabel getCourseName(){
         courseName.setText(course.getFulName());
+        calculate.setFont(new java.awt.Font("Arial Black", 0, 16));
         courseName.setSize(300, 60);
         courseName.setLocation(100,20);
         return courseName;
@@ -124,9 +124,9 @@ public class CourseInner extends JFrame implements ActionListener{
         calculate.addActionListener(this);;
         calculate.setText("CALCULATE");
         calculate.setForeground(Color.WHITE);
-        calculate.setFont(new java.awt.Font("Arial Black", 0, 16)); // NOI18N
+        calculate.setFont(new java.awt.Font("Arial Black", 0, 16));
 
-        calculate.setSize(150, 80);
+        calculate.setSize(150, 100);
         calculate.setLocation(FRAME_WIDTH-250, FRAME_HEIGHT-150);
         calculate.setBackground(new java.awt.Color(0,0,204));
 
