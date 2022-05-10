@@ -14,14 +14,17 @@ public class calculateFrame extends javax.swing.JFrame {
 
     private Course course;
     private int databaseId;
+    private int totalGrade;
     /**
      * Creates new form calculateFrame
      */
     //public static JFrame frame = new calculateFrame();
-    public calculateFrame(Course aCourse, int adataBaseId) {
-        initComponents();
+    public calculateFrame(Course aCourse, int adataBaseId, int totalGrade) {
+        
         this.course = aCourse;
         this.databaseId = adataBaseId;
+        this.totalGrade = totalGrade;
+        initComponents();
     }
 
     /**
@@ -59,7 +62,7 @@ public class calculateFrame extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel1.setFont(new java.awt.Font("Arial Black", 0, 12)); // NOI18N
-        jLabel1.setText("your score is");
+        jLabel1.setText("your score is " + totalGrade);
 
         jLabel2.setBackground(new java.awt.Color(0, 153, 0));
         jLabel2.setText(" A");
@@ -247,12 +250,16 @@ public class calculateFrame extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
+
+    /*
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
          */
+
+    /*
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
@@ -277,6 +284,15 @@ public class calculateFrame extends javax.swing.JFrame {
                 
             }
         }); */
+    //}
+
+    
+    public static void main(String[] args) {
+        Course course = new Course("barçın102", "31");
+        calculateFrame courseInner = new calculateFrame(course,31,80);
+        
+        courseInner.setVisible(true);  
+        courseInner.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 
     }
 
     // Variables declaration - do not modify                     

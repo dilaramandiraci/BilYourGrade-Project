@@ -1,9 +1,4 @@
 
-
-/*
- *İbrahim Barkın Çınar
-*/
-
 import javax.swing.ComboBoxEditor;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
@@ -182,8 +177,7 @@ public class CourseInner extends JFrame implements ActionListener{
                 totalGrade += assesementGrades[i] * dbase.getMethodWeights(course.getFulName()).get(i); 
             }
 
-
-
+            
 
         }
     }
