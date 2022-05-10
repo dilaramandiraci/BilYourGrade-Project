@@ -189,13 +189,15 @@ public class CourseInner extends JFrame implements ActionListener{
                         assesementGrade += elmacık;
                         startingIndex = j+1;
                     }
-                    if(j == assesmentString.length() -1 && isOpen)
+                    if(j == assesmentString.length() -1 && isOpen && slashCount != 0)
                     {
                         elmacık = elmacık / Double.valueOf(assesmentString.substring(startingIndex));
                         assesementGrade += elmacık;
                     }
                 }
-                assesementGrade = assesementGrade / slashCount;
+                if(slashCount == 0){assesementGrade = 0;}
+                else{assesementGrade = assesementGrade / slashCount;}
+                
                 assesementGrades[i] = assesementGrade;
 
                 ArrayList<Double> scores = new ArrayList<Double>();
