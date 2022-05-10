@@ -39,7 +39,7 @@ public class Creative extends JFrame implements ActionListener{
     //public static JFrame frame = new CourseInner();
     //VARIABLES
     Course course;
-    private static final int FRAME_WIDTH = 700;
+    private static final int FRAME_WIDTH = 550;
     private static final int FRAME_HEIGHT = 700;
 
     Random rand = new Random();
