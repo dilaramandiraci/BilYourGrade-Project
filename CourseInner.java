@@ -53,6 +53,7 @@ public class CourseInner extends JFrame implements ActionListener{
     Database dbase;
     int databaseId;
     int assesementCount;
+    //mainMenu forOpening;
     
 
     //CONSTRUCTOR
@@ -63,21 +64,21 @@ public class CourseInner extends JFrame implements ActionListener{
         } catch (Exception e) {
             e.printStackTrace();
         }
-
+        //forOpening= new mainMenu(person);
         this.course = aCourse;
         this.databaseId = AdataBaseId;
         setLocation(0, 0);
         setSize(FRAME_WIDTH, FRAME_HEIGHT);
 
-        int assesementCount = dbase.getMethodNames(course.getFulName()).size();
-
+        assesementCount = dbase.getMethodNames(course.getFulName()).size();
         add(getBackButton());
         add(getCourseName());
 
         for(int i = 0; i < assesementCount ; i++)//TO DO -> 5 yerine course un assesement sayısı gelicek
         {
             JLabel label = new JLabel();
-            label.setText(dbase.getMethodNames(course.getFulName()).get(i)); // TO DO -> thiscourse.assesements[i].getName();
+            System.out.println(assesementCount+"barrçııınnn");
+            label.setText("assesement name " + dbase.getMethodNames(course.getFulName()).get(i)); // TO DO -> thiscourse.assesements[i].getName();
             label.setSize(300, 30);
             label.setLocation(30, 120 + (i*70));
             label.setBackground(new java.awt.Color(50,200,50));
@@ -101,6 +102,7 @@ public class CourseInner extends JFrame implements ActionListener{
     
     public JButton getBackButton(){
 
+        backButton.addActionListener(this);
         backButton.setText("<--");
         backButton.setSize(60, 60);
         backButton.setLocation(20,20);
@@ -119,7 +121,7 @@ public class CourseInner extends JFrame implements ActionListener{
     public JButton getCalculateButton()
     {
         
-        calculate.addActionListener(this);;
+        calculate.addActionListener(this);
         calculate.setText("CALCULATE");
         calculate.setSize(200, 100);
         calculate.setLocation(FRAME_WIDTH-250, FRAME_HEIGHT-150);
@@ -136,6 +138,7 @@ public class CourseInner extends JFrame implements ActionListener{
         if(e.getSource() == calculate)
         {
             double totalGrade = 0;
+            System.out.println("assessement count="+assesementCount);
             double[] assesementGrades = new double[assesementCount];
 
             for(int i = 0; i < texts.size(); i++)
@@ -183,9 +186,11 @@ public class CourseInner extends JFrame implements ActionListener{
 
             calculateFrame calculateFrame = new calculateFrame(course, databaseId, totalGrade);
             calculateFrame.setVisible(true);
+        }
 
-            
-
+        if(e.getSource() == backButton)
+        {
+           this.setVisible(false);
         }
     }
 

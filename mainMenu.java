@@ -222,6 +222,7 @@ allPanel.add(downPanel,BorderLayout.SOUTH);
         try {
             Database d= new Database();
             d.AddCourse(person.getDataBaseId(), newCourse);
+            person.addCourse(newCourse);
             //middlePanel.repaint();
             //initComponents();
         } catch (Exception e) {
@@ -246,9 +247,9 @@ allPanel.add(downPanel,BorderLayout.SOUTH);
     }      
     public void reFreshFrame(){
         allPanel.remove(middlePanel);
-        JPanel newPanel = new JPanel();
-        modifyMiddlepanel(newPanel);
-        allPanel.add(newPanel, BorderLayout.CENTER);
+        middlePanel = new JPanel();
+        modifyMiddlepanel(middlePanel);
+        allPanel.add(middlePanel, BorderLayout.CENTER);
         allPanel.validate();
         allPanel.repaint();
     }                                     
@@ -317,13 +318,14 @@ allPanel.add(downPanel,BorderLayout.SOUTH);
             public void run() {
                 for(int i=0;i<courseButtons.length;i++){
                     if(evt.getSource()==courseButtons[i]){
+
                         new CourseInner(person.getCourses().get(i),person.getDataBaseId());
                         System.out.println("broooooooooooooo");
                         
                     }
                 }
                 
-               setVisible(false);
+              // setVisible(false);
                 
             }});
     }                             
