@@ -318,6 +318,8 @@ allPanel.add(downPanel,BorderLayout.NORTH);
                 for(int i=0;i<courseButtons.length;i++){
                     if(evt.getSource()==courseButtons[i]){
                         new CourseInner(person.getCourses().get(i),person.getDataBaseId());
+                        System.out.println("broooooooooooooo");
+                        
                     }
                 }
                 

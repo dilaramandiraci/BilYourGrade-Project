@@ -92,6 +92,8 @@ public class CourseInner extends JFrame implements ActionListener{
 
         add(getCalculateButton());
         add(emptyPanel);
+        this.setVisible(true);  
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 
         
     }
     
