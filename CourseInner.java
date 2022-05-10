@@ -45,7 +45,7 @@ public class CourseInner extends JFrame implements ActionListener{
     Random rand = new Random();
 
     ArrayList<JTextField> texts = new ArrayList<JTextField>();
-    ArrayList<Double> pastScores= new ArrayList<>(); 
+    ArrayList<String> pastScores= new ArrayList<>(); 
     JButton backButton = new JButton();
     JLabel courseName = new JLabel();
     JPanel emptyPanel = new JPanel();
@@ -91,7 +91,7 @@ public class CourseInner extends JFrame implements ActionListener{
             {
                 if(pastScores.get(i)!=null)
                 {
-                    texts.add(new JTextField(""+pastScores.get(i)));
+                    texts.add(new JTextField(pastScores.get(i)));
                 }
                 else
                 {
@@ -160,10 +160,12 @@ public class CourseInner extends JFrame implements ActionListener{
         {
             double totalGrade = 0;
             double[] assesementGrades = new double[assesementCount];
+            ArrayList<String> scores = new ArrayList<>();
 
             for(int i = 0; i < texts.size(); i++)
             {
                 String assesmentString = texts.get(i).getText() ;
+                scores.add(assesmentString);
                 double assesementGrade = 0;
                 int slashCount = 0;
                 int startingIndex = 0;
@@ -200,18 +202,10 @@ public class CourseInner extends JFrame implements ActionListener{
                 
                 assesementGrades[i] = assesementGrade;
 
-                
-
             }
-            ArrayList<Double> scores = new ArrayList<Double>();
-
-            for(int j=0; j<assesementGrades.length; j++)
-            {
-                scores.add(assesementGrades[j]);
-            }
-
-            dbase.setScores(scores, databaseId, course.getFulName());
             
+            dbase.setScores(scores, databaseId, course.getFulName());
+
             for(int i = 0 ; i < assesementGrades.length ; i++)
             {
                 totalGrade += assesementGrades[i] * dbase.getMethodWeights(course.getFulName()).get(i); 
