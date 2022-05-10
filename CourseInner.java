@@ -66,10 +66,7 @@ public class CourseInner extends JFrame implements ActionListener{
 
         this.course = aCourse;
         this.databaseId = AdataBaseId;
-<<<<<<< HEAD
         
-=======
->>>>>>> main
         setLocation(0, 0);
         setSize(FRAME_WIDTH, FRAME_HEIGHT);
 
