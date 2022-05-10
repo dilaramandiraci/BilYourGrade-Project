@@ -115,7 +115,7 @@ public class mainMenu extends JFrame {
         jLabel7.setLocation(20, frameHeight-30);
         
 
-        jTextField1.setText("jTextField1");
+        jTextField1.setText("Course");
         jTextField1.setCaretColor(new java.awt.Color(102, 0, 153));
         jTextField1.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         jTextField1.setSize(300, 30);
