@@ -80,14 +80,13 @@ public class CourseInner extends JFrame implements ActionListener{
             label.setText("assesement name " + dbase.getMethodNames(course.getFulName()).get(i) + " Weight %" + dbase.getMethodWeights(course.getFulName()).get(i)) ; // TO DO -> thiscourse.assesements[i].getName();
             label.setSize(300, 30);
             label.setLocation(30, 120 + (i*70));
-            label.setBackground(new java.awt.Color(50,200,50));
+            label.setForeground(Color.BLUE);
             add(label);
 
             texts.add(new JTextField());
             
             texts.get(i).setSize(300, 30);
             texts.get(i).setLocation(40, 150 + (i*70));
-            texts.get(i).setBackground(new java.awt.Color(0,200,0));
             add(texts.get(i));
         }
         
@@ -103,7 +102,7 @@ public class CourseInner extends JFrame implements ActionListener{
 
         backButton.addActionListener(this);
         backButton.setText("<--");
-        backButton.setSize(60, 30);
+        backButton.setSize(60, 60);
         backButton.setLocation(20,20);
         backButton.setForeground(Color.WHITE);
         backButton.setBackground(Color.BLACK);
