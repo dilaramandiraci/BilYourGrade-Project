@@ -53,26 +53,19 @@ public class CourseInner extends JFrame implements ActionListener{
     Database dbase;
     int databaseId;
     int assesementCount;
-    mainMenu forOpening;
     
 
     //CONSTRUCTOR
-    public CourseInner(Course aCourse, int AdataBaseId, Person oPerson){
+    public CourseInner(Course aCourse, int AdataBaseId){
 
         try {
             dbase = new Database();
-            forOpening=new mainMenu(oPerson);
         } catch (Exception e) {
             e.printStackTrace();
         }
 
         this.course = aCourse;
         this.databaseId = AdataBaseId;
-<<<<<<< Updated upstream
-        
-=======
-
->>>>>>> Stashed changes
         setLocation(0, 0);
         setSize(FRAME_WIDTH, FRAME_HEIGHT);
 
@@ -113,11 +106,8 @@ public class CourseInner extends JFrame implements ActionListener{
         backButton.setLocation(20,20);
         backButton.setForeground(Color.WHITE);
         backButton.setBackground(Color.BLACK);
-        backButton.addActionListener(this);
-
         return backButton;
     }
-    
     
     public JLabel getCourseName(){
         courseName.setText(course.getFulName());
@@ -196,12 +186,6 @@ public class CourseInner extends JFrame implements ActionListener{
 
             
 
-        }
-
-        if(e.getSource() == backButton){
-    
-            forOpening.setVisible(true);
-            this.setVisible(false);
         }
     }
 
