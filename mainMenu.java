@@ -265,7 +265,7 @@ allPanel.add(downPanel,BorderLayout.NORTH);
                     }
                 }
                 //setVisible(false);
-                new messageFrame(person).setVisible(true);}
+                new messageFrame(person, this).setVisible(true);} //Q
                // messageFrame.messageFrame.setVisible(true);
                 
                                          

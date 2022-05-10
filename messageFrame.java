@@ -21,9 +21,10 @@ public class messageFrame extends javax.swing.JFrame {
     
     Person person;
     mainMenu m;
-    public messageFrame(Person oPerson) {
+    public messageFrame(Person oPerson, mainMenu menu) //Q constructor changed
+    {
         this.person=oPerson;
-       
+        this.m = menu; // Q
         initComponents();
     }
 
@@ -91,12 +92,13 @@ public class messageFrame extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         
        try {
-        Database d= new Database();try {
+        Database d= new Database();
+        /* try {
             m=new mainMenu(person);
         } catch (Exception e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
-        }
+        } */
         int id=person.getDataBaseId();
         int bb=m.getForActions();
         ArrayList<String> anam=d.getCourses(id);
