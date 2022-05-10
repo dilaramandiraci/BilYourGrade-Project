@@ -45,7 +45,7 @@ public class CourseInner extends JFrame implements ActionListener{
     Random rand = new Random();
 
     ArrayList<JTextField> texts = new ArrayList<JTextField>();
-    ArrayList<Double> pastScores; 
+    ArrayList<Double> pastScores= new ArrayList<>(); 
     JButton backButton = new JButton();
     JLabel courseName = new JLabel();
     JPanel emptyPanel = new JPanel();
@@ -67,7 +67,8 @@ public class CourseInner extends JFrame implements ActionListener{
         //forOpening= new mainMenu(person);
         this.course = aCourse;
         this.databaseId = AdataBaseId;
-        pastScores = dbase.getScores(databaseId, course.getFulName());
+        if(dbase.getScores(databaseId, course.getFulName())!=null)
+        {pastScores = dbase.getScores(databaseId, course.getFulName());}
         setLocation(0, 0);
         setSize(FRAME_WIDTH, FRAME_HEIGHT);
 
@@ -83,9 +84,16 @@ public class CourseInner extends JFrame implements ActionListener{
             label.setLocation(30, 120 + (i*70));
             label.setForeground(Color.BLUE);
             add(label);
-            if(pastScores.get(i)!=null)
+            if(pastScores.size()!=0)
             {
-                texts.add(new JTextField(""+pastScores.get(i)));
+                if(pastScores.get(i)!=null)
+                {
+                    texts.add(new JTextField(""+pastScores.get(i)));
+                }
+                else
+                {
+                    texts.add(new JTextField());
+                }
             }
             else
             {
