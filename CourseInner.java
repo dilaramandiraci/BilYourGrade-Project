@@ -77,7 +77,7 @@ public class CourseInner extends JFrame implements ActionListener{
         for(int i = 0; i < assesementCount ; i++)//TO DO -> 5 yerine course un assesement sayısı gelicek
         {
             JLabel label = new JLabel();
-            label.setText("assesement name " + dbase.getMethodNames(course.getFulName()).get(i) + " Weight %" + dbase.getMethodWeights(course.getFulName()).get(i)) ; // TO DO -> thiscourse.assesements[i].getName();
+            label.setText("assesement name " + dbase.getMethodNames(course.getFulName()).get(i).toUpperCase() + "  Weight %" + dbase.getMethodWeights(course.getFulName()).get(i)) ; // TO DO -> thiscourse.assesements[i].getName();
             label.setSize(300, 30);
             label.setLocation(30, 120 + (i*70));
             label.setForeground(Color.BLUE);
