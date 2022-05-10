@@ -45,7 +45,7 @@ public class CourseInner extends JFrame implements ActionListener{
     Random rand = new Random();
 
     ArrayList<JTextField> texts = new ArrayList<JTextField>();
-
+    ArrayList<Double> pastScores; 
     JButton backButton = new JButton();
     JLabel courseName = new JLabel();
     JPanel emptyPanel = new JPanel();
@@ -67,6 +67,7 @@ public class CourseInner extends JFrame implements ActionListener{
         //forOpening= new mainMenu(person);
         this.course = aCourse;
         this.databaseId = AdataBaseId;
+        pastScores = dbase.getScores(databaseId, course.getFulName());
         setLocation(0, 0);
         setSize(FRAME_WIDTH, FRAME_HEIGHT);
 
@@ -77,13 +78,19 @@ public class CourseInner extends JFrame implements ActionListener{
         for(int i = 0; i < assesementCount ; i++)//TO DO -> 5 yerine course un assesement sayısı gelicek
         {
             JLabel label = new JLabel();
-            label.setText("assesement name " + dbase.getMethodNames(course.getFulName()).get(i).toUpperCase() + "  Weight %" + dbase.getMethodWeights(course.getFulName()).get(i)) ; // TO DO -> thiscourse.assesements[i].getName();
+            label.setText("" + dbase.getMethodNames(course.getFulName()).get(i).toUpperCase() + "  Weight %" + dbase.getMethodWeights(course.getFulName()).get(i)) ; // TO DO -> thiscourse.assesements[i].getName();
             label.setSize(300, 30);
             label.setLocation(30, 120 + (i*70));
             label.setForeground(Color.BLUE);
             add(label);
-
-            texts.add(new JTextField());
+            if(pastScores.get(i)!=null)
+            {
+                texts.add(new JTextField(""+pastScores.get(i)));
+            }
+            else
+            {
+                texts.add(new JTextField());
+            }
             
             texts.get(i).setSize(300, 30);
             texts.get(i).setLocation(40, 150 + (i*70));
@@ -178,6 +185,15 @@ public class CourseInner extends JFrame implements ActionListener{
                 }
                 assesementGrade = assesementGrade / slashCount;
                 assesementGrades[i] = assesementGrade;
+
+                ArrayList<Double> scores = new ArrayList<Double>();
+
+                for(int j=0; j<assesementGrades.length; j++)
+                {
+                    scores.add(assesementGrades[j]);
+                }
+
+                dbase.setScores(scores, databaseId, course.getFulName());
 
             }
 
