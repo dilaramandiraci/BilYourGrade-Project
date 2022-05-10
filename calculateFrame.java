@@ -1,4 +1,6 @@
 
+import java.util.ArrayList;
+
 import javax.swing.JFrame;
 /*
 
@@ -15,6 +17,8 @@ public class calculateFrame extends javax.swing.JFrame {
     private Course course;
     private int databaseId;
     private double totalGrade;
+    Database data;
+    ArrayList<Integer> borders;
     /**
      * Creates new form calculateFrame
      */
@@ -24,6 +28,11 @@ public class calculateFrame extends javax.swing.JFrame {
         this.course = aCourse;
         this.databaseId = adataBaseId;
         this.totalGrade = totalGrade;
+        try {
+            data = new Database();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         initComponents();
     }
 
@@ -74,7 +83,7 @@ public class calculateFrame extends javax.swing.JFrame {
 
         
         jLabel6.setFont(new java.awt.Font("Arial Black", 0, 12)); // NOI18N
-        jLabel6.setText("You need   points");
+        jLabel6.setText(neededPoints(totalGrade, 10));
 
         jLabel3.setBackground(new java.awt.Color(0, 204, 51));
         jLabel3.setText(" A-");
@@ -83,35 +92,35 @@ public class calculateFrame extends javax.swing.JFrame {
 
         
         jLabel7.setFont(new java.awt.Font("Arial Black", 0, 12)); // NOI18N
-        jLabel7.setText("jLabel7");
+        jLabel7.setText(neededPoints(totalGrade, 9));
 
         jLabel4.setBackground(new java.awt.Color(102, 255, 51));
         jLabel4.setText(" B+");
         jLabel4.setOpaque(true);
         
         jLabel8.setFont(new java.awt.Font("Arial Black", 0, 12)); // NOI18N
-        jLabel8.setText("jLabel8");
+        jLabel8.setText(neededPoints(totalGrade, 8));
 
         jLabel5.setBackground(new java.awt.Color(153, 255, 51));
         jLabel5.setText(" B");
         jLabel5.setOpaque(true);
 
         jLabel9.setFont(new java.awt.Font("Arial Black", 0, 12)); // NOI18N
-        jLabel9.setText("jLabel9");
+        jLabel9.setText(neededPoints(totalGrade, 7));
 
         jLabel10.setBackground(new java.awt.Color(204, 255, 51));
         jLabel10.setText(" B-");
         jLabel10.setOpaque(true);
 
         jLabel11.setFont(new java.awt.Font("Arial Black", 0, 12)); // NOI18N
-        jLabel11.setText("jLabel11");
+        jLabel11.setText(neededPoints(totalGrade, 6));
 
         jLabel12.setBackground(new java.awt.Color(255, 255, 0));
         jLabel12.setText(" C+");
         jLabel12.setOpaque(true);
 
         jLabel13.setFont(new java.awt.Font("Arial Black", 0, 12)); // NOI18N
-        jLabel13.setText("jLabel11");
+        jLabel13.setText(neededPoints(totalGrade, 5));
 
         
         jLabel19.setBackground(new java.awt.Color(255, 204, 102));
@@ -119,28 +128,28 @@ public class calculateFrame extends javax.swing.JFrame {
         jLabel19.setOpaque(true);
 
         jLabel14.setFont(new java.awt.Font("Arial Black", 0, 12)); // NOI18N
-        jLabel14.setText("jLabel11");
+        jLabel14.setText(neededPoints(totalGrade, 4));
         
         jLabel20.setBackground(new java.awt.Color(255, 153, 51));
         jLabel20.setText(" C-");
         jLabel20.setOpaque(true);
 
         jLabel15.setFont(new java.awt.Font("Arial Black", 0, 12)); // NOI18N
-        jLabel15.setText("jLabel11");
+        jLabel15.setText(neededPoints(totalGrade, 3));
         
         jLabel21.setBackground(new java.awt.Color(255, 102, 0));
         jLabel21.setText(" D+");
         jLabel21.setOpaque(true);
 
         jLabel16.setFont(new java.awt.Font("Arial Black", 0, 12)); // NOI18N
-        jLabel16.setText("jLabel11");
+        jLabel16.setText(neededPoints(totalGrade, 2));
 
         jLabel22.setBackground(new java.awt.Color(255, 51, 0));
         jLabel22.setText(" D");
         jLabel22.setOpaque(true);
 
         jLabel17.setFont(new java.awt.Font("Arial Black", 0, 12)); // NOI18N
-        jLabel17.setText("jLabel11");
+        jLabel17.setText(neededPoints(totalGrade, 1));
         
         jLabel23.setBackground(new java.awt.Color(200, 0, 0));
         jLabel23.setText(" F");
@@ -148,7 +157,7 @@ public class calculateFrame extends javax.swing.JFrame {
 
         
         jLabel24.setFont(new java.awt.Font("Arial Black", 0, 12)); // NOI18N
-        jLabel24.setText("jLabel24");
+        jLabel24.setText("You need no points");
 
 
 
@@ -267,11 +276,24 @@ public class calculateFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-               new CourseInner(course, databaseId);
+               //new CourseInner(course, databaseId);
                setVisible(false);
             }
         });
-    }                                        
+    }
+    
+    public String neededPoints(double totalGrade,int a)
+    {
+        borders=data.getBorders(course.getFulName());
+        double point= borders.get(a-1)-totalGrade;
+        if(point>0)
+        {
+            return "You need "+point+" points.";
+        }
+        else{
+            return "You already passed this letter grade";
+        }
+    }
 
     /**
      * @param args the command line arguments
