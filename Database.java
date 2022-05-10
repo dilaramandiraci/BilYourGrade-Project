@@ -152,7 +152,7 @@ public class Database {
         return 0;
     }
 
-    public void setScores(ArrayList<Double> a, int id, String courseName) {
+    public void setScores(ArrayList<String> a, int id, String courseName) {
         try {
 
             // Connection con = getConnection();
@@ -173,15 +173,15 @@ public class Database {
 
     }
 
-    public void updateScores(ArrayList<Double> a, int id, String courseName) {
+    public void updateScores(ArrayList<String> a, int id, String courseName) {
         try {
 
             // Connection con = getConnection();
             for (int i = 0; i < a.size(); i++) {
                 if (a.get(i) != null) {
                     PreparedStatement create = con.prepareStatement(
-                            "UPDATE scores SET method" + (i + 1) + "grade = " + a.get(i) +
-                                    " WHERE userid = " + id + " AND courseName = '" + courseName + "'");
+                            "UPDATE scores SET method" + (i + 1) + "grade = '" + a.get(i) +
+                                    "' WHERE userid = " + id + " AND courseName = '" + courseName + "'");
                     System.out.println("updatescorescomin");
                     create.executeUpdate();
                 }
@@ -280,9 +280,9 @@ public class Database {
      * @param courseName
      * @return scores Double ArrayList
      */
-    public ArrayList<Double> getScores(int id, String courseName) {
+    public ArrayList<String> getScores(int id, String courseName) {
         try {
-            ArrayList<Double> scores = new ArrayList<>();
+            ArrayList<String> scores = new ArrayList<>();
 
             for (int i = 1; i < 9; i++) {
                 PreparedStatement statement = con
@@ -293,7 +293,7 @@ public class Database {
                 result.next();
 
                 if (result.getString("method" + i + "grade") != null) {
-                    scores.add(Double.parseDouble(result.getString("method" + i + "grade")));
+                    scores.add(result.getString("method" + i + "grade"));
 
                 } else {
                     scores.add(null);
