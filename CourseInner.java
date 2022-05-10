@@ -79,7 +79,7 @@ public class CourseInner extends JFrame implements ActionListener{
         {
             JLabel label = new JLabel();
             System.out.println(assesementCount+"barrçııınnn");
-            label.setText("assesement name " + dbase.getMethodNames(course.getFulName()).get(i)); // TO DO -> thiscourse.assesements[i].getName();
+            label.setText("assesement name " + dbase.getMethodNames(course.getFulName()).get(i) + " " + dbase.getMethodWeights(course.getFulName()).get(i)) ; // TO DO -> thiscourse.assesements[i].getName();
             label.setSize(300, 30);
             label.setLocation(30, 120 + (i*70));
             label.setBackground(new java.awt.Color(50,200,50));
