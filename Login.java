@@ -1,4 +1,6 @@
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -148,6 +150,10 @@ public class Login extends javax.swing.JFrame {
                     {
                         new mainMenu(new Person(jTextField1.getText(), String.valueOf(jPasswordField1.getPassword()),databaseId)).setVisible(true);
                         frame.setVisible(false);
+                    }
+                    else
+                    {
+                        JOptionPane.showMessageDialog(frame, "wrong password");
                     }
                 } catch (Exception e) {
                     // TODO Auto-generated catch block
