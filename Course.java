@@ -25,6 +25,17 @@ public class Course implements Modifiable{
             e.printStackTrace();
         }
     }
+    public Course(String fullname)
+    {
+        int a=fullname.length()-3;
+        this.numericCode=fullname.substring(a);
+        this.name=fullname.substring(0, a);
+        try {
+            assesements = getAssesementsFromCurriculum();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
     public ArrayList<Assesement> getAssesements() {
         return assesements;

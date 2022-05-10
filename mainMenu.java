@@ -61,6 +61,12 @@ public class mainMenu extends JFrame {
         person = aPerson;
         Database dbase = new Database();
         courses = dbase.getCourses(person.getDataBaseId());
+        ArrayList<Course> c=new ArrayList<>();
+        for(int i=0;i<courses.size();i++)
+        {
+            c.add(new Course(courses.get(i)));
+        }
+        person.setCourses(c);
         initComponents();
         
     }
@@ -121,7 +127,7 @@ public class mainMenu extends JFrame {
         });
 
         jLabel8.setFont(new java.awt.Font("Viner Hand ITC", 0, 12)); // NOI18N
-        jLabel8.setText("Welcome name");
+        jLabel8.setText("Welcome "+person.getUserName());
         jLabel8.setSize(100, 30);
         jLabel8.setLocation(5, 100);
 
