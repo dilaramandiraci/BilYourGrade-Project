@@ -104,7 +104,7 @@ public class CourseInner extends JFrame implements ActionListener{
 
         backButton.addActionListener(this);
         backButton.setText("<--");
-        backButton.setSize(60, 60);
+        backButton.setSize(60, 30);
         backButton.setLocation(20,20);
         backButton.setForeground(Color.WHITE);
         backButton.setBackground(Color.BLACK);
@@ -121,11 +121,14 @@ public class CourseInner extends JFrame implements ActionListener{
     public JButton getCalculateButton()
     {
         
-        calculate.addActionListener(this);
+        calculate.addActionListener(this);;
         calculate.setText("CALCULATE");
-        calculate.setSize(200, 100);
+        calculate.setForeground(Color.WHITE);
+        calculate.setFont(new java.awt.Font("Arial Black", 0, 16)); // NOI18N
+
+        calculate.setSize(150, 80);
         calculate.setLocation(FRAME_WIDTH-250, FRAME_HEIGHT-150);
-        calculate.setBackground(new java.awt.Color(0,51,255));
+        calculate.setBackground(new java.awt.Color(0,0,204));
 
         return calculate;
     }
@@ -138,7 +141,6 @@ public class CourseInner extends JFrame implements ActionListener{
         if(e.getSource() == calculate)
         {
             double totalGrade = 0;
-            System.out.println("assessement count="+assesementCount);
             double[] assesementGrades = new double[assesementCount];
 
             for(int i = 0; i < texts.size(); i++)
@@ -146,13 +148,13 @@ public class CourseInner extends JFrame implements ActionListener{
                 String assesmentString = texts.get(i).getText() ;
                 double assesementGrade = 0;
                 int slashCount = 0;
+                int startingIndex = 0;
+                double elmacık = 0;
+                boolean isOpen = false;
 
 
                 for(int j = 0; j< assesmentString.length(); j++)
                 {
-                    int startingIndex = 0;
-                    double elmacık = 0;
-                    boolean isOpen = false;
 
                     if(assesmentString.charAt(j) == '/')
                     {
@@ -167,6 +169,7 @@ public class CourseInner extends JFrame implements ActionListener{
                         elmacık = elmacık / Double.valueOf(assesmentString.substring(startingIndex, j));
                         isOpen = false;
                         assesementGrade += elmacık;
+                        startingIndex = j+1;
                     }
                     if(j == assesmentString.length() -1 && isOpen)
                     {

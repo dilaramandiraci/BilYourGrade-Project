@@ -70,6 +70,8 @@ public class calculateFrame extends javax.swing.JFrame {
         jLabel2.setBackground(new java.awt.Color(0, 153, 0));
         jLabel2.setText(" A");
         jLabel2.setOpaque(true);
+        jLabel2.setFont(new java.awt.Font("Arial Black", 0, 20)); 
+
         
         jLabel6.setFont(new java.awt.Font("Arial Black", 0, 12)); // NOI18N
         jLabel6.setText("You need   points");
@@ -77,6 +79,8 @@ public class calculateFrame extends javax.swing.JFrame {
         jLabel3.setBackground(new java.awt.Color(0, 204, 51));
         jLabel3.setText(" A-");
         jLabel3.setOpaque(true);
+        jLabel3.setFont(new java.awt.Font("Arial Black", 0, 20)); 
+
         
         jLabel7.setFont(new java.awt.Font("Arial Black", 0, 12)); // NOI18N
         jLabel7.setText("jLabel7");
@@ -138,7 +142,7 @@ public class calculateFrame extends javax.swing.JFrame {
         jLabel17.setFont(new java.awt.Font("Arial Black", 0, 12)); // NOI18N
         jLabel17.setText("jLabel11");
         
-        jLabel23.setBackground(new java.awt.Color(255, 102, 0));
+        jLabel23.setBackground(new java.awt.Color(200, 0, 0));
         jLabel23.setText(" F");
         jLabel23.setOpaque(true);
 
