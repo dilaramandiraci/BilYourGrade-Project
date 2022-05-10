@@ -197,12 +197,4 @@ public class CourseInner extends JFrame implements ActionListener{
         }
     }
 
-    public static void main(String[] args) {
-        Course course = new Course("MATH", "102");
-        CourseInner courseInner = new CourseInner(course,31);
-        
-        courseInner.setVisible(true);  
-        courseInner.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 
-    }
-
 }
