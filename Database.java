@@ -252,7 +252,7 @@ public class Database {
             throws Exception {
         try {
             PreparedStatement create = con.prepareStatement(
-                    "INSERT INTO courses (courseName) VALUES ( '" + courseName + "')");
+                    "INSERT IGNORE INTO courses (courseName) VALUES ( '" + courseName + "')");
             create.executeUpdate();
             for (int i = 0; i < mWeights.size(); i++) {
                 PreparedStatement statement = con

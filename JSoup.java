@@ -30,7 +30,7 @@ public class JSoup {
             //System.out.println(doc.outerHtml());
             for(Element row:doc.select("table.bordered tr"))
             {
-                if(row.select("td:nth-of-type(5)").text().equals("")||row.select("td:nth-of-type(2)").text().equals("None"))
+                if(row.select("td:nth-of-type(5)").text().equals(""))
                 {
                     continue;
                 }
@@ -38,7 +38,11 @@ public class JSoup {
                 {
                     final String weight = row.select("td:nth-of-type(5)").text();
                     final String name = row.select("td:nth-of-type(2)").text();
-                    assesmentList.add(new Assesement(name, Integer.parseInt(weight)));  
+                    if(!(name.equals("None")) && !(weight.equals("0")))
+                    {
+                       assesmentList.add(new Assesement(name, Integer.parseInt(weight))); 
+                    }
+                      
                 }
             }  
         } catch (Exception e) {

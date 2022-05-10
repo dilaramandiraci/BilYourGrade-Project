@@ -293,11 +293,30 @@ public class SignUpInterface extends javax.swing.JFrame {
         }
         aPerson.setDataBaseId(dataBaseId);
         ArrayList<String> courseNames = new ArrayList<String>();
+        ArrayList<Assesement> ases=new ArrayList<>();
+        ArrayList<String> asnames;
+        ArrayList<Integer> w;
         for (int i = 0; i < aPerson.getCourses().size(); i++) {
             courseNames.add(aPerson.getCourses().get(i).getFulName());
+            ases=aPerson.getCourses().get(i).getAssesements();
+            asnames= new ArrayList<>();
+            w= new ArrayList<>();
+            for(int j=0;j<ases.size();j++)
+            {
+                asnames.add(ases.get(j).getName());
+                w.add(ases.get(j).getWeight());
+               
+            }
+            try {
+                database.setAssessments4Course(w, asnames, courseNames.get(i));
+            } catch (Exception e) {
+                System.out.println("database set asesment problem");
+                e.printStackTrace();
+            }
         }
         try {
             database.setCourses4user(courseNames, dataBaseId);
+            
         } catch (Exception e) {
             // TODO Auto-generated catch block
             e.printStackTrace(); 
