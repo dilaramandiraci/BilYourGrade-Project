@@ -39,7 +39,7 @@ public class CourseInner extends JFrame implements ActionListener{
     //public static JFrame frame = new CourseInner();
     //VARIABLES
     Course course;
-    private static final int FRAME_WIDTH = 700;
+    private static final int FRAME_WIDTH = 400;
     private static final int FRAME_HEIGHT = 700;
 
     Random rand = new Random();
@@ -64,15 +64,17 @@ public class CourseInner extends JFrame implements ActionListener{
         } catch (Exception e) {
             e.printStackTrace();
         }
-        //forOpening= new mainMenu(person);
+
         this.course = aCourse;
         this.databaseId = AdataBaseId;
+        assesementCount = dbase.getMethodNames(course.getFulName()).size();
+
         if(dbase.getScores(databaseId, course.getFulName())!=null)
         {pastScores = dbase.getScores(databaseId, course.getFulName());}
+
         setLocation(0, 0);
         setSize(FRAME_WIDTH, FRAME_HEIGHT);
 
-        assesementCount = dbase.getMethodNames(course.getFulName()).size();
         add(getBackButton());
         add(getCourseName());
 
@@ -81,9 +83,10 @@ public class CourseInner extends JFrame implements ActionListener{
             JLabel label = new JLabel();
             label.setText("" + dbase.getMethodNames(course.getFulName()).get(i).toUpperCase() + "  Weight %" + dbase.getMethodWeights(course.getFulName()).get(i)) ; // TO DO -> thiscourse.assesements[i].getName();
             label.setSize(300, 30);
-            label.setLocation(30, 120 + (i*70));
+            label.setLocation(30, 80 + (i*70));
             label.setForeground(Color.BLUE);
             add(label);
+
             if(pastScores.size()!=0)
             {
                 if(pastScores.get(i)!=null)
@@ -101,7 +104,7 @@ public class CourseInner extends JFrame implements ActionListener{
             }
             
             texts.get(i).setSize(300, 30);
-            texts.get(i).setLocation(40, 150 + (i*70));
+            texts.get(i).setLocation(40, 110 + (i*70));
             add(texts.get(i));
         }
         
@@ -117,7 +120,8 @@ public class CourseInner extends JFrame implements ActionListener{
 
         backButton.addActionListener(this);
         backButton.setText("<--");
-        backButton.setSize(60, 60);
+        backButton.setFont(new java.awt.Font("Arial Black", 0, 14));
+        backButton.setSize(60, 30);
         backButton.setLocation(20,20);
         backButton.setForeground(Color.WHITE);
         backButton.setBackground(Color.BLACK);
@@ -126,28 +130,28 @@ public class CourseInner extends JFrame implements ActionListener{
     
     public JLabel getCourseName(){
         courseName.setText(course.getFulName());
-        calculate.setFont(new java.awt.Font("Arial Black", 0, 16));
-        courseName.setSize(300, 60);
+        courseName.setFont(new java.awt.Font("Arial Black", 1, 18));
+        courseName.setSize(300, 30);
         courseName.setLocation(100,20);
         return courseName;
     }
 
     public JButton getCalculateButton()
-    {
-        
+    {    
         calculate.addActionListener(this);;
         calculate.setText("CALCULATE");
         calculate.setForeground(Color.WHITE);
-        calculate.setFont(new java.awt.Font("Arial Black", 0, 16));
+        calculate.setFont(new java.awt.Font("Arial Black", 0, 14));
 
-        calculate.setSize(150, 100);
-        calculate.setLocation(FRAME_WIDTH-250, FRAME_HEIGHT-150);
+        calculate.setSize(140, 60);
+        calculate.setLocation((FRAME_WIDTH-140)/2, FRAME_HEIGHT-110);
         calculate.setBackground(new java.awt.Color(0,0,204));
 
         return calculate;
     }
 
-    //LISTENER
+
+    //LISTENERS
     
     public void actionPerformed(ActionEvent e) {
 
