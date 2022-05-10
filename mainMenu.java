@@ -28,7 +28,7 @@ import javax.swing.JPanel;
  */
 
 
-public class mainMenu extends JFrame {
+public class mainMenu extends JFrame{
 
     /**
      * Creates new form mainMenu
@@ -39,6 +39,8 @@ public class mainMenu extends JFrame {
     static int courseTh;
     static boolean forChanges=false;
     private Person person;
+
+    JButton creativeButton = new JButton();
     public Person getPerson() {
         return person;
     }
@@ -97,6 +99,21 @@ public class mainMenu extends JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        
+        creativeButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+             }
+            });
+        creativeButton.setText("Creative");
+        creativeButton.setForeground(Color.WHITE);
+        creativeButton.setFont(new java.awt.Font("Arial Black", 0, 23));
+        creativeButton.setSize(50, 50);
+        creativeButton.setLocation(10,frameHeight-100);
+        creativeButton.setBackground(new java.awt.Color(100,20,20));
+        add(creativeButton);
+
+        
         
 
         jLabel1.setBackground(new java.awt.Color(255, 0, 51));
@@ -201,7 +218,7 @@ allPanel.add(downPanel,BorderLayout.SOUTH);
              public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton6ActionPerformed(evt);
              }
-         });
+        });
          aPanel.add(courseButtons[i]);
          aPanel.add(buttons[i]);
 
@@ -274,14 +291,12 @@ allPanel.add(downPanel,BorderLayout.SOUTH);
                 
                                          
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {                                         
-        // TODO add your handling code here:
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-               
-               // messageFrame.messageFrame.setVisible(true);
-                
-            }});
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {
+        this.setVisible(false);                                         
+        Creative creativeFrame = new Creative(1);
+        creativeFrame.setVisible(true);
+        creativeFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 
+        
     }                                        
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {                                         
@@ -380,4 +395,5 @@ allPanel.add(downPanel,BorderLayout.SOUTH);
     private javax.swing.JPanel downRightPanel;
     private javax.swing.JTextField jTextField1;
     // End of variables declaration                   
+    
 }

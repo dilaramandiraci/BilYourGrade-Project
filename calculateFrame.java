@@ -35,6 +35,12 @@ public class calculateFrame extends javax.swing.JFrame {
         }
         initComponents();
     }
+    
+    public calculateFrame(double totalGrade) {
+        
+        this.totalGrade = totalGrade;
+        initComponents();
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -325,7 +331,12 @@ public class calculateFrame extends javax.swing.JFrame {
     
     public String neededPoints(double totalGrade,int a)
     {
-        borders=data.getBorders(course.getFulName());
+        if(course==null)
+        {
+            borders = new ArrayList<Integer>();
+            borders.add(30);borders.add(40);borders.add(45);borders.add(50);borders.add(55);borders.add(60);borders.add(65);borders.add(70);borders.add(75);borders.add(80);borders.add(100);
+        }
+        else{borders=data.getBorders(course.getFulName());}
         double point= borders.get(a-1)-totalGrade;
         if(point>0)
         {
