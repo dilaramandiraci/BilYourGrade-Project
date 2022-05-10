@@ -164,14 +164,15 @@ allPanel.add(downPanel,BorderLayout.SOUTH);
     }// </editor-fold> 
 
     public void modifyMiddlepanel(JPanel aPanel)
-    { Database dbase;
-    try {
-        dbase = new Database();
-        courses = dbase.getCourses(person.getDataBaseId());
-    } catch (Exception e) {
-        // TODO Auto-generated catch block
-        e.printStackTrace();
-    }
+    {   
+        Database dbase;
+        try {
+            dbase = new Database();
+            courses = dbase.getCourses(person.getDataBaseId());
+        } catch (Exception e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
         
         int n=courses.size();//Person.getCourses().size();
          buttons=new JButton[n];

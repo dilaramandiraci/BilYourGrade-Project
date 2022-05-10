@@ -57,22 +57,17 @@ public class CourseInner extends JFrame implements ActionListener{
     
 
     //CONSTRUCTOR
-    public CourseInner(Course aCourse, int AdataBaseId, Person oPerson){
+    public CourseInner(Course aCourse, int AdataBaseId){
 
         try {
             dbase = new Database();
-            forOpening=new mainMenu(oPerson);
         } catch (Exception e) {
             e.printStackTrace();
         }
 
         this.course = aCourse;
         this.databaseId = AdataBaseId;
-<<<<<<< Updated upstream
         
-=======
-
->>>>>>> Stashed changes
         setLocation(0, 0);
         setSize(FRAME_WIDTH, FRAME_HEIGHT);
 
