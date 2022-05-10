@@ -59,6 +59,7 @@ public class CourseInner extends JFrame implements ActionListener{
     //CONSTRUCTOR
     public CourseInner(Course aCourse, int AdataBaseId){
 
+        this.setTitle("BilYourGrade");
         try {
             dbase = new Database();
         } catch (Exception e) {

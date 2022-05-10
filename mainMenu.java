@@ -57,7 +57,7 @@ public class mainMenu extends JFrame {
     
 
     public mainMenu(Person aPerson) throws Exception {
-        
+        this.setTitle("BilYourGrade");
         person = aPerson;
         Database dbase = new Database();
         courses = dbase.getCourses(person.getDataBaseId());

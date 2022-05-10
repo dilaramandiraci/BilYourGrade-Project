@@ -29,6 +29,7 @@ public class SignUpInterface extends javax.swing.JFrame {
 
     static JFrame frame = new SignUpInterface();
     public SignUpInterface() {
+        this.setTitle("BilYourGrade");
         initComponents();
         try {
             database = new Database();

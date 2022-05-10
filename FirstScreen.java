@@ -17,6 +17,7 @@ public class FirstScreen extends javax.swing.JFrame {
      */
     public static JFrame Fframe = new FirstScreen();
     public FirstScreen() {
+        this.setTitle("BilYourGrade");
         initComponents();
     }
 

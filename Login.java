@@ -19,6 +19,7 @@ public class Login extends javax.swing.JFrame {
      */
     public static JFrame frame = new Login();
     public Login() {
+        this.setTitle("BilYourGrade");
         initComponents();
     }
 
