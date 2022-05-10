@@ -30,7 +30,7 @@ public class JSoup {
             //System.out.println(doc.outerHtml());
             for(Element row:doc.select("table.bordered tr"))
             {
-                if(row.select("td:nth-of-type(5)").text().equals(""))
+                if(row.select("td:nth-of-type(5)").text().equals("")||row.select("td:nth-of-type(2)").text().equals("None"))
                 {
                     continue;
                 }
