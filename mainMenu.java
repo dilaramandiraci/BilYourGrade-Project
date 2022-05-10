@@ -115,7 +115,7 @@ public class mainMenu extends JFrame {
         jLabel7.setLocation(20, frameHeight-30);
         
 
-        jTextField1.setText("jTextField1");
+        jTextField1.setText("Course");
         jTextField1.setCaretColor(new java.awt.Color(102, 0, 153));
         jTextField1.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         jTextField1.setSize(300, 30);
@@ -144,7 +144,7 @@ public class mainMenu extends JFrame {
         modifyMiddlepanel(middlePanel);
 
         
-allPanel.add(middlePanel);
+allPanel.add(middlePanel, BorderLayout.CENTER);
 downPanel.setLayout(new GridLayout(1,2));
 downLeftPanel.add(jLabel7);
 downLeftPanel.add(jTextField1);
@@ -152,7 +152,7 @@ downPanel.add(downLeftPanel);
 downRightPanel.setLayout(new GridLayout(5,1));
 downRightPanel.add(labelInput);
 downPanel.add(downRightPanel);
-allPanel.add(downPanel,BorderLayout.NORTH);
+allPanel.add(downPanel,BorderLayout.SOUTH);
 
 
 
@@ -248,7 +248,7 @@ allPanel.add(downPanel,BorderLayout.NORTH);
         allPanel.remove(middlePanel);
         JPanel newPanel = new JPanel();
         modifyMiddlepanel(newPanel);
-        allPanel.add(newPanel, BorderLayout.SOUTH);
+        allPanel.add(newPanel, BorderLayout.CENTER);
         allPanel.validate();
         allPanel.repaint();
     }                                     
