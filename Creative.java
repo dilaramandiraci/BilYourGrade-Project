@@ -247,11 +247,18 @@ public class Creative extends JFrame implements ActionListener{
 
         if(e.getSource() == plus)
         {
-            assesementCount++;
-            Creative newCreative = new Creative(assesementCount);
-            newCreative.setVisible(true);  
-            this.setVisible(false);
-            newCreative.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 
+            if(assesementCount<8)
+            {
+                assesementCount++;
+                Creative newCreative = new Creative(assesementCount);
+                newCreative.setVisible(true);  
+                this.setVisible(false);
+                newCreative.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 
+            }
+            else
+            {
+                JOptionPane.showMessageDialog(this,"You can't add more assessements than 7");
+            }
         }
 
         if(e.getSource() == minus)
