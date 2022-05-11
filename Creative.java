@@ -240,14 +240,11 @@ public class Creative extends JFrame implements ActionListener{
 
             JOptionPane.showMessageDialog(this,"Your Total Grade Is: " + totalGrade);
 
-
-            
-
         }
 
         if(e.getSource() == plus)
         {
-            if(assesementCount<8)
+            if(assesementCount<7)
             {
                 assesementCount++;
                 Creative newCreative = new Creative(assesementCount);
