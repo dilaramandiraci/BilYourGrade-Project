@@ -93,7 +93,7 @@ public class Creative extends JFrame implements ActionListener{
         plus.setFont(new java.awt.Font("Arial Black", 0, 23));
         plus.setSize(50, 50);
         plus.setLocation(100, FRAME_HEIGHT-110);
-        plus.setBackground(new java.awt.Color(20,80,20));
+        plus.setBackground(new java.awt.Color(0,255,51));
         add(plus);
 
         minus.addActionListener(this);;
@@ -102,7 +102,7 @@ public class Creative extends JFrame implements ActionListener{
         minus.setFont(new java.awt.Font("Arial Black", 0, 23));
         minus.setSize(50, 50);
         minus.setLocation(10, FRAME_HEIGHT-110);
-        minus.setBackground(new java.awt.Color(100,20,20));
+        minus.setBackground(new java.awt.Color(255,0,51));
         add(minus);
 
         for(int i = 0; i < assesementCount ; i++)//TO DO -> 5 yerine course un assesement sayısı gelicek
