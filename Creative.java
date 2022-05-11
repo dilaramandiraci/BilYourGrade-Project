@@ -247,26 +247,25 @@ public class Creative extends JFrame implements ActionListener{
 
         if(e.getSource() == plus)
         {
-            this.setVisible(false);
             assesementCount++;
             Creative newCreative = new Creative(assesementCount);
             newCreative.setVisible(true);  
+            this.setVisible(false);
             newCreative.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 
         }
 
         if(e.getSource() == minus)
         {
-            this.setVisible(false);
             if(assesementCount>1){
             assesementCount--;}
             Creative newCreative = new Creative(assesementCount);
             newCreative.setVisible(true);  
+            this.setVisible(false);
             newCreative.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 
         }
         
         if(e.getSource() == backButton)
         {
-            System.out.println("ana");
             this.setVisible(false);
         }
 
