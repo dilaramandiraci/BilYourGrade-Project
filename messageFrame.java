@@ -101,6 +101,7 @@ public class messageFrame extends javax.swing.JFrame {
         } */
         int id=person.getDataBaseId();
         int bb=m.getForActions();
+        person.getCourses().remove(bb);
         ArrayList<String> anam=d.getCourses(id);
         d.deleteCourse(id, anam.get(bb));
         

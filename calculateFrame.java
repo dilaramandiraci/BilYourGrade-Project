@@ -36,11 +36,11 @@ public class calculateFrame extends javax.swing.JFrame {
         initComponents();
     }
     
-    public calculateFrame(double totalGrade) {
+    // public calculateFrame(double totalGrade) {
         
-        this.totalGrade = totalGrade;
-        initComponents();
-    }
+    //     this.totalGrade = totalGrade;
+    //     initComponents();
+    // }
 
     /**
      * This method is called from within the constructor to initialize the form.
