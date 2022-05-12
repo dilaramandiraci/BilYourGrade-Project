@@ -93,19 +93,27 @@ public class Person implements Changeable{
     public void setCourses(ArrayList<Course> courses) {
         this.courses = courses;
     }
-
+/**This method add the course in the parameter to ArrayList courses
+ * @param Course
+ */
     @Override
     public void addCourse(Course aCourse) {
        courses.add(aCourse);
         
     }
-
+/**This method remove the course in the parameter from ArrayList courses
+ * @param Course
+ */
     @Override
     public void dropCourse(Course aCourse) {
         courses.remove(aCourse);
         
     }
-
+/**
+ * This method get courses from website by using Jsoup class
+ * @return Course ArrayList 
+ * @throws IOException
+ */
     public ArrayList<Course> getDefaultCourses() throws IOException
     {
         JSoup curriculumScraper = new JSoup();
