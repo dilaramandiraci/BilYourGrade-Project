@@ -88,7 +88,10 @@ public class messageFrame extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+/**
+ * this method delete the course which user choose and close message frame
+ * @param evt
+ */
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         
        try {
@@ -118,7 +121,10 @@ public class messageFrame extends javax.swing.JFrame {
                 
            
     }//GEN-LAST:event_jButton1ActionPerformed
-
+/**
+ * this method close message frame
+ * @param evt
+ */
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
         
