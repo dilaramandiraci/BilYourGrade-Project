@@ -165,7 +165,10 @@ public class mainMenu extends JFrame {
         // pack();
         add(allPanel);
     }// </editor-fold>
-
+/**
+ * This method make the frame dynamic
+ * @param aPanel
+ */
     public void modifyMiddlepanel(JPanel aPanel) {
         Database dbase;
         try {
@@ -208,7 +211,10 @@ public class mainMenu extends JFrame {
 
         }
     }
-
+/**
+ * This method return parameter s to parameters of Course object and add the course to person and database
+ * @param s
+ */
     public void takeAddCourse(String s) {
         String courseNAME = "";
         String numericCode = "";
@@ -234,7 +240,10 @@ public class mainMenu extends JFrame {
             e.printStackTrace();
         }
     }
-
+/**
+ * this method add the course which user write
+ * @param evt
+ */
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
         takeAddCourse(jTextField1.getText());
@@ -250,7 +259,9 @@ public class mainMenu extends JFrame {
          */
 
     }
-
+/**
+ * this method fresh the frame after adding or removing a course
+ */
     public void reFreshFrame() {
         allPanel.remove(middlePanel);
         middlePanel = new JPanel();
@@ -261,7 +272,10 @@ public class mainMenu extends JFrame {
         allPanel.validate();
         allPanel.repaint();
     }
-
+/**
+ * this method open the message frame
+ * @param evt
+ */
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
 
@@ -275,7 +289,10 @@ public class mainMenu extends JFrame {
         new messageFrame(person, this).setVisible(true);
     } // Q
     // messageFrame.messageFrame.setVisible(true);
-
+/**
+ * this method open creative frame
+ * @param evt
+ */
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {
         // this.setVisible(false);
         Creative creativeFrame = new Creative(1);
@@ -283,7 +300,10 @@ public class mainMenu extends JFrame {
         creativeFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
     }
-
+/**
+ * this method open the course which user click of courseinner frame 
+ * @param evt
+ */
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
         java.awt.EventQueue.invokeLater(new Runnable() {
