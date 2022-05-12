@@ -47,6 +47,11 @@ public class Database {
         // mysql.setMethods4Courses(a, c, "MadeUpCourse");
     }
 
+    /**
+     * It makes connection with MySQL and our database
+     * @return
+     * @throws Exception
+     */
     public Connection getConnection() throws Exception {
         try {
             String driver = "com.mysql.cj.jdbc.Driver";// "com.mysql.jdbc.Driver"-->previously
@@ -66,6 +71,11 @@ public class Database {
         return null;
     }
 
+    /**
+     * This method saves a person to the database with their username and password
+     * @param aPerson who will be saved to database
+     * @throws Exception
+     */
     public void createUser(Person aPerson) throws Exception {
         String username = aPerson.getUserName();
         String password = aPerson.getPassword();
@@ -84,6 +94,13 @@ public class Database {
 
     }
 
+    /**
+     * This method allows to use jsoup file to go to the departments curriculum page because their url numbers 
+     * are not regular. So first we found them trivially and saved to our database.
+     * @param deptcode returns dept code accordingly Bilkent Univerrity url
+     * @return department no such as CS = 11
+     * @throws Exception
+     */
     public String getDeptNo(String deptcode) throws Exception {
         try {
             Connection con = getConnection();
@@ -109,6 +126,13 @@ public class Database {
 
     }
 
+    /**
+     * This allow us to get users unique database id to access thier other information and utilize other methods with that id
+     * @param name people name
+     * @param password people password
+     * @return their unique databaseId which is actually row and saving queue
+     * @throws Exception
+     */
     public int getDatabaseID(String name, String password) throws Exception {
         try {
             Connection con = getConnection();
@@ -129,6 +153,12 @@ public class Database {
         return 0;
     }
 
+    /**
+     * When login tried, it checks if such a user exist. It matches names and password with database and login frame
+     * @param name that given in login step
+     * @param password that given in login step
+     * @return if user exists return their database id, if not return 0
+     */
     public int userExists(String name, String password) {
         try {
             Connection con = getConnection();
@@ -152,6 +182,12 @@ public class Database {
         return 0;
     }
 
+    /**
+     * It allows us to set grades to users so that they can access former scores after each login
+     * @param a is a string arraylist which is actually grades in form like 10/15
+     * @param id database id to access spesific persom
+     * @param courseName setting scores of that course
+     */
     public void setScores(ArrayList<String> a, int id, String courseName) {
         try {
 
@@ -173,6 +209,12 @@ public class Database {
 
     }
 
+    /**
+     * This method allows you to update past scores
+     * @param a grades
+     * @param id unique database id to access person 
+     * @param courseName uptading scores of that course
+     */
     public void updateScores(ArrayList<String> a, int id, String courseName) {
         try {
 
@@ -193,6 +235,11 @@ public class Database {
         }
 
     }
+    /**
+     * This method sets a dept code for the given user
+     * @param id unique database id to access the user
+     * @param deptcode CS, EE, IE ...
+     */
     public void setDeptcode(int id, String deptcode)
     {
         PreparedStatement statement;
@@ -206,11 +253,13 @@ public class Database {
             e.printStackTrace();
         }
 
-                
-
-
     }
-
+    /**
+     * This method allows us to set courses for user
+     * @param courseNames courses that will be set
+     * @param id unique database id to access the user
+     * @throws Exception
+     */
     public void setCourses4user(ArrayList<String> courseNames, int id) throws Exception {
         try {
             PreparedStatement statement0 = con
@@ -249,6 +298,13 @@ public class Database {
 
     }
 
+    /**
+     * This method allows us to set assesments for a course
+     * @param mWeights weights will be set
+     * @param names names of the assesments
+     * @param courseName course name
+     * @throws Exception
+     */
     public void setAssessments4Course(ArrayList<Integer> mWeights, ArrayList<String> names, String courseName)
             throws Exception {
         try {
@@ -276,8 +332,8 @@ public class Database {
 
     /**
      * CAUTION SOME ELEMENTS OF THE ARRAYLIST MAY BE NULL
-     * @param id
-     * @param courseName
+     * @param id unique database id to access the user
+     * @param courseName course name whose scores will be returned
      * @return scores Double ArrayList
      */
     public ArrayList<String> getScores(int id, String courseName) {
@@ -309,6 +365,11 @@ public class Database {
 
     }
 
+    /**
+     * This method allow us to get person's current courses
+     * @param id unique database id to access the user
+     * @return current courses that is saved in database
+     */
     public ArrayList<String> getCourses(int id) {
         try {
             ArrayList<String> courses = new ArrayList<>();
@@ -336,6 +397,11 @@ public class Database {
         return null;
     }
 
+    /**
+     * This method allows us to get assessment names for given course
+     * @param courseName course name
+     * @return assessments name for given course
+     */
     public ArrayList<String> getMethodNames(String courseName) {
         try {
             ArrayList<String> methodNames = new ArrayList<>();
@@ -364,6 +430,11 @@ public class Database {
         return null;
     }
 
+    /**
+     * This method allows us to get method weights of the given course
+     * @param courseName course name
+     * @return given courses methods' weights
+     */
     public ArrayList<Integer> getMethodWeights(String courseName) {
         try {
             ArrayList<Integer> mw = new ArrayList<>();
@@ -392,6 +463,11 @@ public class Database {
 
     }
 
+    /**
+     * This method bring informaiton for courses' letter grades borders such as 90-100 A
+     * @param courseName course name
+     * @return Integer arraylşst which includes top borders of the every letter grade for given course
+     */
     public ArrayList<Integer> getBorders(String courseName) {
         try {
             ArrayList<Integer> mw = new ArrayList<>();
@@ -424,6 +500,11 @@ public class Database {
 
     }
 
+    /**
+     * This method used for drop a coursse from given user
+     * @param id unique database id to access the user
+     * @param courseName course name
+     */
     public void deleteCourse(int id, String courseName) {
         ArrayList<String> courses = getCourses(id);
         int index = courses.indexOf(courseName);System.out.println(courses.size());
@@ -452,6 +533,11 @@ public class Database {
 
     }
 
+    /**
+     * This method allow user to add a new course to their main menu and database
+     * @param id unique database id to access the user
+     * @param aCourse course name
+     */
     public void AddCourse(int id, Course aCourse) {
         String courseName = aCourse.getName() + aCourse.getNumericCode();
         ArrayList<String> courses = getCourses(id);
