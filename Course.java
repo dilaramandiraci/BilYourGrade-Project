@@ -65,7 +65,11 @@ public class Course implements Modifiable{
     public void setNumericCode(String numericCode) {
         this.numericCode = numericCode;
     }
-
+/**
+ * This method pull assesments from website by JSoup class
+ * @return assesments 
+ * @throws IOException
+ */
     public ArrayList<Assesement> getAssesementsFromCurriculum() throws IOException
     {
         JSoup sylabbusscraper = new JSoup();
