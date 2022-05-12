@@ -94,7 +94,7 @@ public class Person implements Changeable{
         this.courses = courses;
     }
 /**This method add the course in the parameter to ArrayList courses
- * @param Course
+ * @param aCourse you want to add
  */
     @Override
     public void addCourse(Course aCourse) {
@@ -102,7 +102,7 @@ public class Person implements Changeable{
         
     }
 /**This method remove the course in the parameter from ArrayList courses
- * @param Course
+ * @param aCourse you want to drop
  */
     @Override
     public void dropCourse(Course aCourse) {
