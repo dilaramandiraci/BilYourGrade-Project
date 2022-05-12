@@ -19,6 +19,12 @@ public class JSoup {
     String weight;
     String name;
 
+    /**
+     * This method goes to the url and brings syllabuss information from bilkent University's sylabbus page according to given course
+     * @param aCourse which course's syllabuss needed
+     * @return Assessments of that course
+     * @throws IOException
+     */
     public ArrayList <Assesement> scrapeSyllabuss(Course aCourse) throws IOException
     {
         ArrayList<Assesement> assesmentList = new ArrayList<Assesement>();
@@ -51,6 +57,12 @@ public class JSoup {
         return assesmentList;
     }
     
+    /**
+     * This method brings information from Bilkent University's department page accordingly given semester and year
+     * @param aPerson we need to get person's year and semester information
+     * @return an arraylist of the courses that the person needs to take according to curriculum. (default courses)
+     * @throws IOException
+     */
     public ArrayList<Course> scrapeCurriculum(Person aPerson) throws IOException
     {
         ArrayList<Course> thisYearsCourses = new ArrayList<Course>();
@@ -86,7 +98,6 @@ public class JSoup {
                     else
                     {
                         final String course = row.select("td:nth-of-type(1)").text();
-                        //final String name = row.select("td:nth-of-type(2)").text();
                         for(int i = 0; i<course.length(); i++)
                         {
                             if(course.charAt(i)!=' ')
