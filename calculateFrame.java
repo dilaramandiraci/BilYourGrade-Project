@@ -337,7 +337,10 @@ public class calculateFrame extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>
-
+/**
+ * this method close calculateFrame
+ * @param evt
+ */
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -347,7 +350,12 @@ public class calculateFrame extends javax.swing.JFrame {
             }
         });
     }
-
+/**
+ * this method return the needed points to string for labels
+ * @param totalGrade
+ * @param a
+ * @return String
+ */
     public String neededPoints(double totalGrade, int a) {
         if (course == null) {
             borders = new ArrayList<Integer>();
