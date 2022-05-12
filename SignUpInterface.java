@@ -331,13 +331,6 @@ public class SignUpInterface extends javax.swing.JFrame {
         semesterCode = getTheSemester((String) jComboBox1.getSelectedItem());  */     
     }
     private void jPasswordField2ActionPerformed(java.awt.event.ActionEvent evt){
-
-        /* if(jPasswordField1.getPassword().equals(jPasswordField2.getPassword())){
-            aPassword = String.valueOf(jPasswordField2.getPassword()); 
-        }
-        else { // passwordlar uyuşmuyorsa uyaran kırmızı yazı çıkmalı 
-            //TODO 
-        } */
             
     }
     ////////////// methods to get year and semester as integers//////////////////
