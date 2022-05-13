@@ -121,7 +121,10 @@ public class Creative extends JFrame implements ActionListener{
         
     }
     
-    
+    /**
+     *  This method set features of courseName label
+     * @return JLabel
+     */
     public JLabel getCourseName(){
         courseName.setText("CREATIVE");
         courseName.setFont(new java.awt.Font("Arial Black", 1, 18));
@@ -130,6 +133,10 @@ public class Creative extends JFrame implements ActionListener{
         return courseName;
     }
 
+    /**
+     *  this method add action listener to calculae method and set its features
+     * @return JButton
+     */
     public JButton getCalculateButton()
     {
         
