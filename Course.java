@@ -12,6 +12,11 @@ public class Course implements Modifiable{
     private String name; //CS
     private String numericCode; //102
 
+    /**
+     * Constructs a course object with the name and a numeric code
+     * @param aName
+     * @param numericCode
+     */
     public Course(String aName, String numericCode)
     {
         this.name = aName;
@@ -22,6 +27,10 @@ public class Course implements Modifiable{
             e.printStackTrace();
         }
     }
+    /**
+     * Constructs a course object from its full name
+     * @param fullname
+     */
     public Course(String fullname)
     {
         int a=fullname.length()-3;
