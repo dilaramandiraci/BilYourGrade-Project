@@ -137,7 +137,10 @@ public class Login extends javax.swing.JFrame {
 
         pack();
     }
-
+/**
+ * this method control whether user is exist or not and accurate of password and open mainMenu frame
+ * @param evt
+ */
     private void jButton1MousePressed(java.awt.event.MouseEvent evt) {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
