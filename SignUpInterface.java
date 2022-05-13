@@ -291,7 +291,10 @@ public class SignUpInterface extends javax.swing.JFrame {
     private void exitMenuItemActionPerformed(java.awt.event.ActionEvent evt) {
         System.exit(0);
     }
-
+/**
+ * save informations
+ * @param evt
+ */
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {
         aUserName = jTextField1.getText();
         aDeptCode = jTextField2.getText();
@@ -346,7 +349,10 @@ public class SignUpInterface extends javax.swing.JFrame {
 
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {
     }
-
+/**
+     * control 2 passwords whether they are same
+     * @param evt
+     */
     private void jPasswordField2ActionPerformed(java.awt.event.ActionEvent evt) {
     }
 
