@@ -97,7 +97,10 @@ public class FirstScreen extends javax.swing.JFrame {
 
         pack();
     }
-
+/**
+*open Login screen
+*@param evt
+*/
    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {
         
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -108,7 +111,10 @@ public class FirstScreen extends javax.swing.JFrame {
             }});
     }
     
-
+/**
+ * open signUpInterface
+ * @param evt
+ */
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {
         
         java.awt.EventQueue.invokeLater(new Runnable() {
