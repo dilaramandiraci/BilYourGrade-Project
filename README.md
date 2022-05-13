@@ -2,7 +2,7 @@
 
 Welcome to or CS102 group project: BilYourGrade
 
-To execute our application, the class called FirstScreen's main needs to be runned. However, it would be beneficial to keep in mind that our application is currenly connected to a local database, so you might have truble unless you make an identical database on your local machine this application might not work. However if we connect our application to an online database in the future, everyone can benefit from our application.
+To execute our application, the class called FirstScreen's main needs to be runned. However, it would be beneficial to keep in mind that our application is currenly connected to a local database, so you might have trouble running the program unless you make an identical database on your local machine as well. However if we connect our application to an online database in the future, everyone can benefit from our application. So stay tuned!
 
 This project uses jsoup-1.14.3.jar and mysql-connector-java-8.0.28.jar as referenced libraries.
 
