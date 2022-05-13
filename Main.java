@@ -2,7 +2,6 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.util.ArrayList;
 
 /**
  * 
@@ -10,8 +9,6 @@ import java.util.ArrayList;
  */
 public class Main {
     public static void main(String[] args) throws Exception {
-        //createUser("Işıl", "1234");
-       // get();
        getConnection();
 
     }
@@ -19,7 +16,7 @@ public class Main {
     public static void createTable() throws Exception {
         try {
 
-            Connection con = getConnection();// once we call this we are connected to the database?
+            Connection con = getConnection();
             PreparedStatement create = con.prepareStatement(
                     "CREATE TABLE IF NOT EXISTS tablename(id int NOT NULL AUTO_INCREMENT,first varchar(255),last varchar(255),PRIMARY KEY(id))");
 
@@ -34,9 +31,9 @@ public class Main {
     // this is how to connect to a database?
     public static Connection getConnection() throws Exception {
         try {
-            String driver = "com.mysql.cj.jdbc.Driver";// "com.mysql.jdbc.Driver"-->previously
-            String url = "jdbc:mysql://localhost:3306/bilyourgrade";// "jdbc.mysql://localhost:3306/databasename" he has
-                                                                    // the ip adress
+            String driver = "com.mysql.cj.jdbc.Driver";
+            String url = "jdbc:mysql://localhost:3306/bilyourgrade";
+                                                                    
             String username = "root";
             String password = "aboveba66A";
             Class.forName(driver);
@@ -90,7 +87,6 @@ public class Main {
 
     public static void createUser(String username, String password) throws Exception {
         try {
-
             Connection con = getConnection();
             PreparedStatement create = con.prepareStatement(
                     "INSERT INTO users (name, password) VALUES ( '" + username + "', '" + password + "')");

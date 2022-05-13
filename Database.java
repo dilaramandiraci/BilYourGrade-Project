@@ -18,33 +18,13 @@ public class Database {
 
     public static void main(String[] args) throws Exception {
 
-        // getConnection();
-        // System.out.println(getDatabaseID());
-        // System.out.println(getDeptNo());
-        // System.out.println(userExists("Işıl", "8585"));
         Database mysql = new Database();
-        // mysql.createUser("Barkın", "hello");
-        // ArrayList<Integer> a = new ArrayList<>();
-        // a.add(100);a.add(60);a.add(60);//a.add(80);a.add(85);a.add(90);a.add(75);a.add(80);
-        // mysql.setScores(a, 1, "CS101");
+
 
         ArrayList<Integer> a = mysql.getBorders("MATH102");
         for (int element : a) {
             System.out.println(element);
         }
-        // ArrayList<String> c = new ArrayList<>();
-        // ArrayList<Integer> a = new ArrayList<>();
-        // c.add("lab");
-        // a.add(10);
-        // c.add("homework");
-        // a.add(20);
-        // c.add("presentation");
-        // a.add(20);
-        // c.add("crying");
-        // a.add(20);
-        // c.add("stressing");
-        // a.add(30);
-        // mysql.setMethods4Courses(a, c, "MadeUpCourse");
     }
 
     /**
@@ -54,9 +34,8 @@ public class Database {
      */
     public Connection getConnection() throws Exception {
         try {
-            String driver = "com.mysql.cj.jdbc.Driver";// "com.mysql.jdbc.Driver"-->previously
-            String url = "jdbc:mysql://localhost:3306/bilyourgrade";// "jdbc.mysql://localhost:3306/databasename" he has
-                                                                    // the ip adress
+            String driver = "com.mysql.cj.jdbc.Driver";
+            String url = "jdbc:mysql://localhost:3306/bilyourgrade";                                                 
             String username = "root";
             String password = "aboveba66A";
             Class.forName(driver);
@@ -81,7 +60,6 @@ public class Database {
         String password = aPerson.getPassword();
         try {
 
-            // Connection con = getConnection();
             PreparedStatement create = con.prepareStatement(
                     "INSERT INTO users (name, password) VALUES ( '" + username + "', '" + password + "')");
 
@@ -191,8 +169,6 @@ public class Database {
     public void setScores(ArrayList<String> a, int id, String courseName) {
         try {
 
-            // Connection con = getConnection();
-            // for (int i = 0; i < a.size(); i++)
             PreparedStatement create = con.prepareStatement(
                     "INSERT IGNORE INTO scores (userid, courseName) VALUES ( '" + id + "', '"
                             + courseName + "')");
@@ -218,7 +194,6 @@ public class Database {
     public void updateScores(ArrayList<String> a, int id, String courseName) {
         try {
 
-            // Connection con = getConnection();
             for (int i = 0; i < a.size(); i++) {
                 if (a.get(i) != null) {
                     PreparedStatement create = con.prepareStatement(
@@ -280,21 +255,6 @@ public class Database {
             System.out.println("smtin went wrong" + e);
         }
 
-        // try
-        // {
-        // PreparedStatement statement = con.prepareStatement("SELECT dept_code FROM
-        // users WHERE id = 3");
-
-        // ResultSet result = statement.executeQuery();
-        // while (result.next())
-        // {
-        // String bruh= result.getString("dept_code");//its literally nul
-        // System.out.println(bruh);
-        // System.out.println(bruh.equals(null));
-        // }
-
-        // }
-        // catch(Exception e){System.out.println("smtin went wrong" + e);}
 
     }
 

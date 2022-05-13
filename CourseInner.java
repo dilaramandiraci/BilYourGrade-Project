@@ -1,42 +1,16 @@
-
-import javax.swing.ComboBoxEditor;
-import javax.swing.Icon;
-import javax.swing.ImageIcon;
 import javax.swing.JButton;
-import javax.swing.JCheckBox;
-import javax.swing.JComponent;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JList;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-import javax.swing.JSlider;
 import javax.swing.JTextField;
-import javax.swing.Popup;
-import javax.swing.SwingConstants;
-import javax.swing.Timer;
-import javax.swing.border.Border;
-import javax.swing.border.EmptyBorder;
-import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 import java.util.Random;
-import javax.swing.Timer;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.*;
 
-import javax.swing.JColorChooser;
-import javax.swing.JComboBox;
-import javax.swing.event.ChangeEvent;
-import javax.swing.event.ChangeListener;
-
-
 public class CourseInner extends JFrame implements ActionListener{
     
-
-    //public static JFrame frame = new CourseInner();
     //VARIABLES
     Course course;
     private static final int FRAME_WIDTH = 400;
@@ -53,8 +27,6 @@ public class CourseInner extends JFrame implements ActionListener{
     Database dbase;
     int databaseId;
     int assesementCount;
-    //mainMenu forOpening;
-    
 
     //CONSTRUCTOR
     public CourseInner(Course aCourse, int AdataBaseId){
@@ -79,7 +51,7 @@ public class CourseInner extends JFrame implements ActionListener{
         add(getBackButton());
         add(getCourseName());
 
-        for(int i = 0; i < assesementCount ; i++)//TO DO -> 5 yerine course un assesement sayısı gelicek
+        for(int i = 0; i < assesementCount ; i++)
         {
             JLabel label = new JLabel();
             label.setText("" + dbase.getMethodNames(course.getFulName()).get(i).toUpperCase() + "  Weight %" + dbase.getMethodWeights(course.getFulName()).get(i)) ; // TO DO -> thiscourse.assesements[i].getName();

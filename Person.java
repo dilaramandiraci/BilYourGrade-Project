@@ -25,7 +25,6 @@ public class Person implements Changeable{
         try {
             this.courses = getDefaultCourses();
         } catch (IOException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         }
         

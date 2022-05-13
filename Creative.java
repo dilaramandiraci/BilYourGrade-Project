@@ -1,42 +1,17 @@
-
-import javax.swing.ComboBoxEditor;
-import javax.swing.Icon;
-import javax.swing.ImageIcon;
 import javax.swing.JButton;
-import javax.swing.JCheckBox;
-import javax.swing.JComponent;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JList;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-import javax.swing.JSlider;
 import javax.swing.JTextField;
-import javax.swing.Popup;
-import javax.swing.SwingConstants;
-import javax.swing.Timer;
-import javax.swing.border.Border;
-import javax.swing.border.EmptyBorder;
-import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 import java.util.Random;
-import javax.swing.Timer;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.*;
 
-import javax.swing.JColorChooser;
-import javax.swing.JComboBox;
-import javax.swing.event.ChangeEvent;
-import javax.swing.event.ChangeListener;
-
-
 public class Creative extends JFrame implements ActionListener{
     
-
-    //public static JFrame frame = new CourseInner();
     //VARIABLES
     Course course;
     private static final int FRAME_WIDTH = 550;
@@ -80,7 +55,7 @@ public class Creative extends JFrame implements ActionListener{
         add(backButton);
         
         JLabel weightsLabel = new JLabel();
-        weightsLabel.setText("Weights "); // TO DO -> thiscourse.assesements[i].getName();
+        weightsLabel.setText("Weights ");
         weightsLabel.setSize(300, 30);
         weightsLabel.setLocation(420, 80 );
         weightsLabel.setForeground(Color.BLUE);
@@ -105,10 +80,10 @@ public class Creative extends JFrame implements ActionListener{
         minus.setBackground(new java.awt.Color(255,0,51));
         add(minus);
 
-        for(int i = 0; i < assesementCount ; i++)//TO DO -> 5 yerine course un assesement sayısı gelicek
+        for(int i = 0; i < assesementCount ; i++)
         {
             JLabel assesementName = new JLabel();
-            assesementName.setText("Assesement " + (i+1)); // TO DO -> thiscourse.assesements[i].getName();
+            assesementName.setText("Assesement " + (i+1)); 
             assesementName.setSize(300, 30);
             assesementName.setLocation(30, 80 + (i*70));
             assesementName.setForeground(Color.BLUE);

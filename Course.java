@@ -5,10 +5,6 @@
 import java.io.IOException;
 import java.util.ArrayList;
 
-import org.jsoup.nodes.Document;
-import org.jsoup.nodes.Element;
-import org.jsoup.Jsoup;
-
 public class Course implements Modifiable{
 
     private ArrayList <Assesement> assesements= new ArrayList<Assesement>(); //Final %40, Lab %35 etc.//ArrayList was not created properly.
@@ -74,13 +70,10 @@ public class Course implements Modifiable{
     {
         JSoup sylabbusscraper = new JSoup();
         return sylabbusscraper.scrapeSyllabuss(this);
-        
-        
     }
 
     @Override
     public String getAssessment() {
-        // TODO Auto-generated method stub
         return null;
     }
 }
