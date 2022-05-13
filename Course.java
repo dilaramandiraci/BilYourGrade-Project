@@ -6,7 +6,7 @@
 import java.io.IOException;
 import java.util.ArrayList;
 
-public class Course implements Modifiable{
+public class Course{
 
     private ArrayList <Assesement> assesements= new ArrayList<Assesement>(); //Final %40, Lab %35 etc.//ArrayList was not created properly.
     private String name; //CS
@@ -82,8 +82,4 @@ public class Course implements Modifiable{
         return sylabbusscraper.scrapeSyllabuss(this);
     }
 
-    @Override
-    public String getAssessment() {
-        return null;
-    }
 }
