@@ -1,4 +1,5 @@
 /**
+ * This class represents a Course object that is thought in Bilkent Univercity.
  *  @author Dilara MANDIRACI
  *  and edited by Isil OZGU
  */
