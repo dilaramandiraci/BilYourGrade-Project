@@ -1,4 +1,4 @@
-# project-starting-file
+# project-BilYourGrade
 
 Welcome to or CS102 group project: BilYourGrade
 
